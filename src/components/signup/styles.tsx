@@ -51,7 +51,7 @@ export const SubText = styled.div`
   margin-bottom: 10px;
 `;
 
-export const Input = styled.input<{ isValid?: boolean }>`
+export const Input = styled.input<{ isValid: boolean }>`
   border: 1px solid #d5d5d5;
   border-radius: 5px;
   width: 300px;
