@@ -3,7 +3,7 @@ import "styled-components";
 declare module "styled-components" {
   export interface DefaultTheme {
     backgroundColor: string;
-    hoverBlueColor: string;
+    blueColor: string;
     onFocusBackgroundColor: string;
     greenColor: string;
     redColor: string;

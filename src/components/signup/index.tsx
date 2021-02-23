@@ -11,6 +11,8 @@ import {
   Wrapper,
   Input,
   InputTitle,
+  SignUpButton,
+  SmallText,
 } from "./styles";
 
 const SignUp: React.FC = () => {
@@ -22,7 +24,6 @@ const SignUp: React.FC = () => {
   const passwordRef: React.RefObject<HTMLInputElement> = createRef();
   const confirmPasswordRef: React.RefObject<HTMLInputElement> = createRef();
   const nameRef: React.RefObject<HTMLInputElement> = createRef();
-  const buttonRef: React.RefObject<HTMLInputElement> = createRef();
 
   const clearAllInputs = () => {
     if (emailRef.current) {
@@ -43,10 +44,55 @@ const SignUp: React.FC = () => {
     }
   };
 
+  const regEx = {
+    email: /^[A-Za-z0-9_.-]+@[A-Za-z0-9-]+\.[A-Za-z0-9]+/,
+  };
+
+  const checkPasswordMatch = (): boolean => {
+    const element = document.getElementById("confirmPasswordText");
+    if (!!element) {
+      if (password === "" || confirmPassword === "") {
+        element.innerHTML = "비밀번호를 입력해 주세요.";
+        return false;
+      } else {
+        if (password === confirmPassword) {
+          element.innerHTML = "비밀번호가 일치합니다.";
+          return true;
+        } else {
+          element.innerHTML = "비밀번호가 일치하지 않습니다.";
+          return false;
+        }
+      }
+    } else return false;
+  };
+
+  const checkEmailFormat = (): boolean => {
+    const element = document.getElementById("emailText");
+    if (regEx.email.test(email)) {
+      if (!!element) {
+        element.innerHTML = "올바른 이메일 형식입니다.";
+      }
+      return true;
+    } else {
+      if (!!element) {
+        if (email === "") {
+          element.innerHTML = "이메일을 입력해 주세요.";
+        } else {
+          element.innerHTML = "올바르지 않은 이메일 형식입니다.";
+        }
+      }
+      return false;
+    }
+  };
+
   const handleSignup = (event: React.FormEvent) => {
     event.preventDefault();
     if (email === "") {
       message.warning("이메일을 입력해 주세요.");
+      return;
+    }
+    if (email !== "" && regEx.email.test(email) === false) {
+      message.warning("올바른 이메일 형식이 아닙니다.");
       return;
     }
     if (name === "") {
@@ -55,6 +101,11 @@ const SignUp: React.FC = () => {
     }
     if (password === "") {
       message.warning("비밀번호를 입력해 주세요.");
+      return;
+    }
+    if (password !== confirmPassword) {
+      message.warning("비밀번호가 일치하지 않습니다.");
+      return;
     }
     const requestBody = {
       email: email,
@@ -102,7 +153,9 @@ const SignUp: React.FC = () => {
               onChange={(event: React.SyntheticEvent<HTMLInputElement>) => {
                 setEmail(event.currentTarget.value);
               }}
+              isValid={checkEmailFormat()}
             />
+            <SmallText id="emailText">이메일을 입력해 주세요.</SmallText>
             <InputTitle>비밀 번호</InputTitle>
             <Input
               type="password"
@@ -111,6 +164,7 @@ const SignUp: React.FC = () => {
               onChange={(event: React.SyntheticEvent<HTMLInputElement>) => {
                 setPassword(event.currentTarget.value);
               }}
+              isValid={checkPasswordMatch()}
             />
             <InputTitle>비밀 번호 확인</InputTitle>
             <Input
@@ -120,7 +174,11 @@ const SignUp: React.FC = () => {
               onChange={(event: React.SyntheticEvent<HTMLInputElement>) => {
                 setConfirmPassword(event.currentTarget.value);
               }}
+              isValid={checkPasswordMatch()}
             />
+            <SmallText id="confirmPasswordText">
+              비밀번호를 입력해 주세요.
+            </SmallText>
             <InputTitle>이름(닉네임)</InputTitle>
             <Input
               type="name"
@@ -129,7 +187,13 @@ const SignUp: React.FC = () => {
               onChange={(event: React.SyntheticEvent<HTMLInputElement>) => {
                 setName(event.currentTarget.value);
               }}
+              isValid={name !== ""}
             />
+            <SignUpButton
+              onClick={(event: React.FormEvent) => handleSignup(event)}
+            >
+              회원 가입
+            </SignUpButton>
           </InformationContainer>
         </SignupContainer>
       </Wrapper>
