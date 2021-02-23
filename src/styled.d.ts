@@ -5,5 +5,7 @@ declare module "styled-components" {
     backgroundColor: string;
     hoverBlueColor: string;
     onFocusBackgroundColor: string;
+    greenColor: string;
+    redColor: string;
   }
 }
