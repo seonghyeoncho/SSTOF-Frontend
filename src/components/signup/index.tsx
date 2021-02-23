@@ -87,6 +87,7 @@ const SignUp: React.FC = () => {
 
   const handleSignup = (event: React.FormEvent) => {
     event.preventDefault();
+    message.destroy();
     if (email === "") {
       message.warning("이메일을 입력해 주세요.");
       return;
