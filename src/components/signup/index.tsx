@@ -116,6 +116,7 @@ const SignUp: React.FC = () => {
     userApi
       .signUp(requestBody)
       .then(() => {
+        message.destroy();
         alert("회원가입이 완료되었습니다.");
         // TODO : Move to Login page.
       })
