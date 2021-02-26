@@ -16,6 +16,7 @@ import {
   SignupWithGithubButton,
   GithubImage,
   ButtonText,
+  TestSignupWithGithubButton,
 } from "./styles";
 import GITHUB from "../../assets/GITHUB.png";
 
@@ -200,10 +201,19 @@ const SignUp: React.FC = () => {
             >
               회원 가입
             </SignUpButton>
-            <SignupWithGithubButton to="https://github.com/login/oauth/authorize?client_id=0b7fc90ab8d2806fbc57&redirect_uri=https://banchangohub.com&scope=user:read%20user:email">
+            <SignupWithGithubButton to="https://github.com/login/oauth/authorize?client_id=0b7fc90ab8d2806fbc57&redirect_uri=http://ssutackoverflow.com.s3-website.ap-northeast-2.amazonaws.com/login/oauth2/code/github&scope=user:read%20user:email">
               <GithubImage bgImage={GITHUB} />
               <ButtonText>Github 회원 가입</ButtonText>
             </SignupWithGithubButton>
+            <TestSignupWithGithubButton>
+              <GithubImage
+                bgImage={GITHUB}
+                onClick={() => {
+                  userApi.signUpWithGithub();
+                }}
+              />
+              <ButtonText>Github 회원 가입</ButtonText>
+            </TestSignupWithGithubButton>
           </InformationContainer>
         </SignupContainer>
       </Wrapper>
