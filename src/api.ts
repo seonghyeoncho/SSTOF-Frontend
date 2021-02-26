@@ -7,4 +7,6 @@ const api = axios.create({
 
 export const userApi = {
   signUp: (body: IUserCreateRequest) => api.post("user", body),
+  signUpWithGithub: () =>
+    axios.post("http://52.79.87.105:8080/login/oauth2/code/github"),
 };
