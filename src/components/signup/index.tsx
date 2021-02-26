@@ -13,7 +13,11 @@ import {
   InputTitle,
   SignUpButton,
   SmallText,
+  SignupWithGithubButton,
+  GithubImage,
+  ButtonText,
 } from "./styles";
+import GITHUB from "../../assets/GITHUB.png";
 
 const SignUp: React.FC = () => {
   const [email, setEmail] = useState<string>("");
@@ -196,6 +200,10 @@ const SignUp: React.FC = () => {
             >
               회원 가입
             </SignUpButton>
+            <SignupWithGithubButton>
+              <GithubImage bgImage={GITHUB} />
+              <ButtonText>Github 회원 가입</ButtonText>
+            </SignupWithGithubButton>
           </InformationContainer>
         </SignupContainer>
       </Wrapper>
