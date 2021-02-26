@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Container = styled.div`
@@ -92,7 +93,7 @@ export const SignUpButton = styled.button`
   }
 `;
 
-export const SignupWithGithubButton = styled.button`
+export const SignupWithGithubButton = styled(Link)`
   width: 300px;
   color: white;
   text-align: center;

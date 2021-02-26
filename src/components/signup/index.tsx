@@ -200,7 +200,7 @@ const SignUp: React.FC = () => {
             >
               회원 가입
             </SignUpButton>
-            <SignupWithGithubButton>
+            <SignupWithGithubButton to="https://github.com/login/oauth/authorize?client_id=0b7fc90ab8d2806fbc57&redirect_uri=https://banchangohub.com&scope=user:read%20user:email">
               <GithubImage bgImage={GITHUB} />
               <ButtonText>Github 회원 가입</ButtonText>
             </SignupWithGithubButton>
