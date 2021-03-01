@@ -19,6 +19,7 @@ import {
   TestSignupWithGithubButton,
 } from "./styles";
 import GITHUB from "../../assets/GITHUB.png";
+import axios from "axios";
 
 const SignUp: React.FC = () => {
   const [email, setEmail] = useState<string>("");
@@ -183,6 +184,17 @@ const SignUp: React.FC = () => {
               }}
               isValid={checkPasswordMatch()}
             />
+            <div
+              style={{ color: "white" }}
+              onClick={async () => {
+                const result = await axios.get(
+                  "https://github.com/login/oauth/authorize?client_id=0b7fc90ab8d2806fbc57&redirect_uri=http://ssutackoverflow.com.s3-website.ap-northeast-2.amazonaws.com/login/oauth2/code/github&scope=user:read%20user:email"
+                );
+                console.log(result);
+              }}
+            >
+              TEST
+            </div>
             <SmallText id="confirmPasswordText">
               비밀번호를 입력해 주세요.
             </SmallText>
@@ -206,13 +218,16 @@ const SignUp: React.FC = () => {
               <ButtonText>Github 회원 가입</ButtonText>
             </SignupWithGithubButton>
             <TestSignupWithGithubButton>
-              <GithubImage
-                bgImage={GITHUB}
-                onClick={() => {
-                  userApi.signUpWithGithub();
+              <div
+                style={{ display: "flex" }}
+                onClick={async () => {
+                  const result = await userApi.signUpWithGithub();
+                  console.log(result);
                 }}
-              />
-              <ButtonText>Github 회원 가입</ButtonText>
+              >
+                <GithubImage bgImage={GITHUB} />
+                <ButtonText>Github 회원 가입2</ButtonText>
+              </div>
             </TestSignupWithGithubButton>
           </InformationContainer>
         </SignupContainer>
