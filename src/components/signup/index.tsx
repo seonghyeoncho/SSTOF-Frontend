@@ -1,5 +1,5 @@
 import React, { createRef, useState } from "react";
-import { message } from "antd";
+import message from "antd/lib/message";
 import sha256 from "crypto";
 import { userApi } from "../../api";
 import {
