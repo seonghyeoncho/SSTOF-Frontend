@@ -8,5 +8,9 @@ const api = axios.create({
 export const userApi = {
   signUp: (body: IUserCreateRequest) => api.post("user", body),
   signUpWithGithub: () =>
-    axios.get("http://localhost:8080/oauth2/authorization/github"),
+    axios.get("http://localhost:8080/oauth2/authorization/github", {
+      headers: {
+        "Access-Control-Allow-Origin": "*",
+      },
+    }),
 };

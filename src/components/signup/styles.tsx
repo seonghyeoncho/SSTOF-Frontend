@@ -110,7 +110,7 @@ export const SignupWithGithubButton = styled(Link)`
   }
 `;
 
-export const TestSignupWithGithubButton = styled.div`
+export const TestSignupWithGithubButton = styled.a`
   width: 300px;
   color: white;
   text-align: center;

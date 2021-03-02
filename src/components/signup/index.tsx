@@ -217,17 +217,9 @@ const SignUp: React.FC = () => {
               <GithubImage bgImage={GITHUB} />
               <ButtonText>Github 회원 가입</ButtonText>
             </SignupWithGithubButton>
-            <TestSignupWithGithubButton>
-              <div
-                style={{ display: "flex" }}
-                onClick={async () => {
-                  const result = await userApi.signUpWithGithub();
-                  console.log(result);
-                }}
-              >
-                <GithubImage bgImage={GITHUB} />
-                <ButtonText>Github 회원 가입2</ButtonText>
-              </div>
+            <TestSignupWithGithubButton href="http://localhost:8080/oauth2/authorization/github">
+              <GithubImage bgImage={GITHUB} />
+              <ButtonText>Github 회원 가입2</ButtonText>
             </TestSignupWithGithubButton>
           </InformationContainer>
         </SignupContainer>
