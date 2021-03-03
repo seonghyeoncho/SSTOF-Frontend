@@ -19,7 +19,6 @@ import {
   TestSignupWithGithubButton,
 } from "./styles";
 import GITHUB from "../../assets/GITHUB.png";
-import axios from "axios";
 
 const SignUp: React.FC = () => {
   const [email, setEmail] = useState<string>("");
@@ -184,17 +183,6 @@ const SignUp: React.FC = () => {
               }}
               isValid={checkPasswordMatch()}
             />
-            <div
-              style={{ color: "white" }}
-              onClick={async () => {
-                const result = await axios.get(
-                  "https://github.com/login/oauth/authorize?client_id=0b7fc90ab8d2806fbc57&redirect_uri=http://ssutackoverflow.com.s3-website.ap-northeast-2.amazonaws.com/login/oauth2/code/github&scope=user:read%20user:email"
-                );
-                console.log(result);
-              }}
-            >
-              TEST
-            </div>
             <SmallText id="confirmPasswordText">
               비밀번호를 입력해 주세요.
             </SmallText>
