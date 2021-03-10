@@ -93,24 +93,7 @@ export const SignUpButton = styled.button`
   }
 `;
 
-export const SignupWithGithubButton = styled(Link)`
-  width: 300px;
-  color: white;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 8px;
-  border-radius: 15px;
-  line-height: 1.7;
-  font-weight: bold;
-  background-color: rgb(55, 65, 81);
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
-export const TestSignupWithGithubButton = styled.a`
+export const SignupWithGithubButton = styled.a`
   width: 300px;
   color: white;
   text-align: center;
