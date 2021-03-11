@@ -1,5 +1,5 @@
-import React, { createRef, useState } from "react";
-import { message } from "antd";
+import React, { createRef, useEffect, useState } from "react";
+import message from "antd/lib/message";
 import sha256 from "crypto";
 import { userApi } from "../../api";
 import {
@@ -13,7 +13,12 @@ import {
   InputTitle,
   SignUpButton,
   SmallText,
+  SignupWithGithubButton,
+  GithubImage,
+  ButtonText,
 } from "./styles";
+import GITHUB from "../../assets/GITHUB.png";
+import { useLocation } from "react-router";
 
 const SignUp: React.FC = () => {
   const [email, setEmail] = useState<string>("");
@@ -24,7 +29,7 @@ const SignUp: React.FC = () => {
   const passwordRef: React.RefObject<HTMLInputElement> = createRef();
   const confirmPasswordRef: React.RefObject<HTMLInputElement> = createRef();
   const nameRef: React.RefObject<HTMLInputElement> = createRef();
-
+  const location = useLocation();
   const clearAllInputs = () => {
     if (emailRef.current) {
       emailRef.current.value = "";
@@ -43,6 +48,23 @@ const SignUp: React.FC = () => {
       setName("");
     }
   };
+
+  useEffect(() => {
+    const query = new URLSearchParams(location.search);
+    const error_code = query.get("error_code");
+    if (error_code !== null) {
+      switch (parseInt(error_code)) {
+        case 409:
+          message.error("해당 이메일은 이미 가입되어 있습니다.");
+          break;
+        case 400:
+          message.error(
+            "해당 Github 계정은 공개 이메일이 설정되어 있지 않습니다."
+          );
+          break;
+      }
+    }
+  }, [location]);
 
   const regEx = {
     email: /^[A-Za-z0-9_.-]+@[A-Za-z0-9-]+\.[A-Za-z0-9]+/,
@@ -196,6 +218,12 @@ const SignUp: React.FC = () => {
             >
               회원 가입
             </SignUpButton>
+            <SignupWithGithubButton
+              href={`${process.env.GITHUB_OAUTH_ADDRESS}`}
+            >
+              <GithubImage bgImage={GITHUB} />
+              <ButtonText>Github 회원 가입</ButtonText>
+            </SignupWithGithubButton>
           </InformationContainer>
         </SignupContainer>
       </Wrapper>
