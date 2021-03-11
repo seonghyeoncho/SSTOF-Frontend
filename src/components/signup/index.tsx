@@ -218,7 +218,9 @@ const SignUp: React.FC = () => {
             >
               회원 가입
             </SignUpButton>
-            <SignupWithGithubButton href="http://localhost:8080/oauth2/authorization/github">
+            <SignupWithGithubButton
+              href={`${process.env.GITHUB_OAUTH_ADDRESS}`}
+            >
               <GithubImage bgImage={GITHUB} />
               <ButtonText>Github 회원 가입</ButtonText>
             </SignupWithGithubButton>
