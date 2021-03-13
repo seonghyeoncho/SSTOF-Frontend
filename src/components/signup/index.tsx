@@ -222,7 +222,7 @@ const SignUp: React.FC = () => {
               href={`${process.env.GITHUB_OAUTH_ADDRESS}`}
             >
               <GithubImage bgImage={GITHUB} />
-              <ButtonText>Github 회원 가입</ButtonText>
+              <ButtonText>Github로 계속하기</ButtonText>
             </SignupWithGithubButton>
           </InformationContainer>
         </SignupContainer>
