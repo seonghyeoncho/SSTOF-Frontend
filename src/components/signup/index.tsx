@@ -54,13 +54,18 @@ const SignUp: React.FC = () => {
     const error_code = query.get("error_code");
     if (error_code !== null) {
       switch (parseInt(error_code)) {
-        case 409:
-          message.error("해당 이메일은 이미 가입되어 있습니다.");
-          break;
         case 400:
           message.error(
             "해당 Github 계정은 공개 이메일이 설정되어 있지 않습니다."
           );
+          break;
+        case 500:
+          message.error(
+            "알 수 없는 문제가 발생했습니다. 관리자에게 문의해 주세요."
+          );
+          break;
+        default:
+          message.error("알 수 없는 오류가 발생했습니다.");
           break;
       }
     }
@@ -219,10 +224,10 @@ const SignUp: React.FC = () => {
               회원 가입
             </SignUpButton>
             <SignupWithGithubButton
-              href={`${process.env.GITHUB_OAUTH_ADDRESS}`}
+              href={`${process.env.REACT_APP_GITHUB_OAUTH_ADDRESS}`}
             >
               <GithubImage bgImage={GITHUB} />
-              <ButtonText>Github 회원 가입</ButtonText>
+              <ButtonText>Github로 계속하기</ButtonText>
             </SignupWithGithubButton>
           </InformationContainer>
         </SignupContainer>
