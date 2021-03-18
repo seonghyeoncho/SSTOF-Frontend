@@ -59,6 +59,9 @@ const SignUp: React.FC = () => {
             "해당 Github 계정은 공개 이메일이 설정되어 있지 않습니다."
           );
           break;
+        case 406:
+          message.error("해당 이메일은 일반 회원 가입으로 가입되어 있습니다.");
+          break;
         case 500:
           message.error(
             "알 수 없는 문제가 발생했습니다. 관리자에게 문의해 주세요."
@@ -146,7 +149,7 @@ const SignUp: React.FC = () => {
       .then(() => {
         message.destroy();
         alert("회원가입이 완료되었습니다.");
-        // TODO : Move to Login page.
+        window.location.href = "/";
       })
       .catch(({ response: { status } }) => {
         if (status === 400) {
