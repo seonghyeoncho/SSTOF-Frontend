@@ -6,6 +6,7 @@ import {
   Switch,
 } from "react-router-dom";
 import SignUp from "../routes/signup";
+import Header from "./header";
 import Main from "./main";
 
 const RouterComponent: React.FC = () => (
@@ -22,6 +23,7 @@ const RouterComponent: React.FC = () => (
 
 const RouterExporter: React.FC = () => (
   <Router>
+    <Header/>
     <RouterComponent />
   </Router>
 );
