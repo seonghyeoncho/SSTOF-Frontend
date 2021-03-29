@@ -1,10 +1,33 @@
 import React from "react";
+import { Container, MainContainer, MainContent, MainContentTitle, MainfillterButtons, SideNavBar } from "./styles";
 
 const Main: React.FC = () => (
-  <>
-    <h1>SSUTackOverflow 메인 페이지입니다.</h1>
-    <h2>화이팅~~</h2>
-  </>
+
+  <Container>
+
+    <SideNavBar>
+
+    </SideNavBar>
+    
+    <MainContainer>
+
+      <MainContentTitle>
+        카테고리
+      </MainContentTitle>
+        
+      <MainfillterButtons>
+        filler buttons
+      </MainfillterButtons>
+
+      <MainContent>
+
+      </MainContent>
+      
+
+    </MainContainer>
+
+  </Container>
+  
 );
 
 export default Main;

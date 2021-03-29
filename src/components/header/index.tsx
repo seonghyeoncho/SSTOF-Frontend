@@ -6,30 +6,46 @@ import {
     Input,
     InputContainer,
     Title,
-    InputImage,
-    TitleImage
+    TitleImage,
+    ButtonContainer,
+    UserLinkButton,
+    InstructionLinkButton,
+    MyQuestionsLinkButton
 } from './styles';
 
 const Header: React.FC = () => {
 
     return(
         <Container>
+            <div/>
             <Wrapper>
                 <TitleContainer>
                     <TitleImage
                     />
                     <Title>
-                        SSUTackOverflow
+                        SSTOF
                     </Title>
                 </TitleContainer>
+
                 <InputContainer>
-                    <InputImage
-                    />
                     <Input
                         type="text"
                         placeholder="Search..."
                     />
                 </InputContainer>
+
+                <ButtonContainer>
+                    <UserLinkButton>
+
+                    </UserLinkButton>
+                    <MyQuestionsLinkButton>
+                        
+                    </MyQuestionsLinkButton>
+                    <InstructionLinkButton>
+
+                    </InstructionLinkButton>
+                    
+                </ButtonContainer>
                 
             </Wrapper>
         </Container>
