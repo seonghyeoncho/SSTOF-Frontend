@@ -2,15 +2,19 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
 
-    display: grid;
-    grid-template-columns: 1fr 1080px 1fr;
-    gap: 24px;
+    @media ${props => props.theme.desktop} {
+        display: grid;
+        grid-template-columns: 1fr 1080px 1fr;
+        gap: 24px;
 
-    margin-top: 74px;
+        margin-top: 74px;
+    }
+
+    
 
 `;
 
-export const SideNavBar = styled.div`
+export const SideNavBarContianer = styled.div`
     
     width: 154px;
     height: 100px;
@@ -21,6 +25,10 @@ export const SideNavBar = styled.div`
 
     display: flex;
     justify-self: right;
+
+    @media ${props => props.theme.mobile} {
+        display: none;
+    }
 
 `;
 
@@ -36,6 +44,10 @@ export const MainContainer = styled.div`
 
     background-color: #4E4E4E;
     color: white;
+
+    @media ${props => props.theme.mobile} {
+        background-color: transparent;
+    }
 
 `;
 export const MainContentTitle = styled.div`

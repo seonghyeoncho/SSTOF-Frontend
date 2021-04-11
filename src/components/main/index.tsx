@@ -1,13 +1,17 @@
 import React from "react";
-import { Container, MainContainer, MainContent, MainContentTitle, MainfillterButtons, SideNavBar } from "./styles";
+import SideNavBar from "../sidebar";
+import { Container, MainContainer, MainContent, MainContentTitle, MainfillterButtons, SideNavBarContianer } from "./styles";
 
 const Main: React.FC = () => (
 
   <Container>
 
-    <SideNavBar>
+    <SideNavBarContianer>
+      <SideNavBar>
 
-    </SideNavBar>
+      </SideNavBar>
+
+    </SideNavBarContianer>
     
     <MainContainer>
 

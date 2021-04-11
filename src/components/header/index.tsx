@@ -10,24 +10,24 @@ import {
     ButtonContainer,
     UserLinkButton,
     InstructionLinkButton,
-    MyQuestionsLinkButton
+    MyQuestionsLinkButton,
+    InputImage
 } from './styles';
 
 const Header: React.FC = () => {
 
     return(
         <Container>
-            <div/>
-            <Wrapper>
-                <TitleContainer>
+           <TitleContainer>
                     <TitleImage
                     />
                     <Title>
                         SSTOF
                     </Title>
                 </TitleContainer>
-
+            <Wrapper>
                 <InputContainer>
+                    <InputImage/>
                     <Input
                         type="text"
                         placeholder="Search..."
