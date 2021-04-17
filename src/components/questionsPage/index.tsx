@@ -1,0 +1,24 @@
+import React from 'react';
+import SideNavBar from '../sidebar';
+import { Container, QuestionsContainer, SideNavBarContianer, Title, Wrapper } from './styles';
+
+const Questions: React.FC = () => {
+    return (
+        <Container>
+            <Wrapper>
+                <SideNavBarContianer>
+                    <SideNavBar>
+                        
+                    </SideNavBar>
+                </SideNavBarContianer>
+                <QuestionsContainer>
+                    <Title>
+                        Questions
+                    </Title>
+                </QuestionsContainer>
+            </Wrapper>
+        </Container>
+    );
+};
+
+export default Questions;

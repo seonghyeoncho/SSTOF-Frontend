@@ -1,6 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
     Container, 
+    HomeLinkTitle, 
+    PublicLinkContainer, 
+    PublicLinks, 
+    PublicLinkTitle, 
     Wrapper,
 
 } from './styles';
@@ -10,13 +15,21 @@ const SideNavBar: React.FC = () => {
     return (
         <Container>
             <Wrapper>
-                <div>Home</div>
-                <div>PUBLIC</div>
-                <div>
-                    <div>Questions</div>
-                    <div>Tags</div>
-                    <div>Users</div>
-                </div>
+                <HomeLinkTitle>
+                    <Link to="/">Home</Link>
+                </HomeLinkTitle>
+                
+                <PublicLinkContainer>
+                    <PublicLinkTitle>
+                        PUBLIC
+                    </PublicLinkTitle>
+                    <PublicLinks>
+                        <Link to="questions">Questions</Link>
+                        <Link to="tags">Tags</Link>
+                        <Link to="users">Users</Link>
+                    </PublicLinks>
+                    
+                </PublicLinkContainer>
             </Wrapper>
         </Container>
     );

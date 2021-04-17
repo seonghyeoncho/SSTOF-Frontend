@@ -8,9 +8,11 @@ declare module "styled-components" {
     greenColor: string;
     redColor: string;
     mainColor: string;
+    themeColor: string;
     mobile: string,
     tablet: string,
     desktop: string,
+
   }
   
 }

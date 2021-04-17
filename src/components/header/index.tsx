@@ -1,5 +1,7 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
+
     Container,
     TitleContainer,
     Wrapper,
@@ -11,21 +13,25 @@ import {
     UserLinkButton,
     InstructionLinkButton,
     MyQuestionsLinkButton,
-    InputImage
+    InputImage,
+    
 } from './styles';
 
 const Header: React.FC = () => {
 
     return(
         <Container>
-           <TitleContainer>
-                    <TitleImage
-                    />
-                    <Title>
-                        SSTOF
-                    </Title>
-                </TitleContainer>
+                <div/>
             <Wrapper>
+                <TitleContainer>
+                    <Link to="/">
+                        <TitleImage/>
+                        <Title>
+                            SSTOF
+                        </Title>
+                    </Link>
+                </TitleContainer>
+
                 <InputContainer>
                     <InputImage/>
                     <Input

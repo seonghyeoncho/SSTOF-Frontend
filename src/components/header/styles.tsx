@@ -1,17 +1,13 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
+    height: 50px;
+    width: 100%;
 
+    position: fixed;
+    top: 0px;
     @media ${props => props.theme.desktop} {
-        height: 50px;
-        width: 100%;
-
-        position: fixed;
-        top: 0px;
-
-        display: grid;
-        grid-template-columns: 1fr 1080px 1fr;
-        gap: 24px;
+        
 
         border-bottom: solid 1px #909090;
 
@@ -19,10 +15,13 @@ export const Container = styled.div`
     }
     @media ${props => props.theme.tablet} {
     }
+
     @media ${props => props.theme.mobile} {
 
         height: 50px;
         width: 100%;
+
+        position: fixed;
 
         border-bottom: solid 1px #909090;
 
@@ -38,14 +37,16 @@ export const Wrapper = styled.div`
 
     
     @media ${props => props.theme.desktop} {
-        width: 100%;
+        max-width: 1280px;
         height: 100%;
 
-        display: grid;
-        grid-template-columns : 5fr 1fr;
+        display: flex;
+        justify-content: space-between;
+
+        margin: 0px auto;
     }
     @media ${props => props.theme.mobile} {
-        
+        display: flex;
     }
 
 `;
@@ -53,10 +54,20 @@ export const Wrapper = styled.div`
 
 export const TitleContainer = styled.div`
 
-    height: 100%;
+    background-color: transparent;
+    border: none;
 
-    display: flex;
-    justify-self: right;
+    @media ${props => props.theme.desktop} {
+        display: flex;
+        align-items: center;
+        a{
+            display: flex;
+            
+        }
+        
+    }
+    
+    
 
 `;
 export const TitleImage = styled.div`
@@ -69,18 +80,20 @@ export const TitleImage = styled.div`
     margin-right: 6px;
 
     background-color: #1B7EBC;
+    @media ${props => props.theme.mobile} {
+        margin: auto;
+    }
     
 
 `;
-export const Title = styled.button`
+export const Title = styled.div`
 
     font-size:27px;
     font-weight: bold;
 
-    border:none;
-
-    background-color: transparent;
     color: white;
+
+    margin: auto;
     
     @media ${props => props.theme.mobile} {
         display: none;
@@ -89,10 +102,17 @@ export const Title = styled.button`
 
 export const InputContainer = styled.div`
 
-    display: flex;
-    align-items: center;
+    
+    @media ${props => props.theme.desktop} {
 
-    border-radius: 40px;
+        
+        display: flex;
+        align-items: center;
+
+        width: 100%;
+
+        border-radius: 40px;
+    }
     @media ${props => props.theme.mobile} {
         display: none;
     }
@@ -102,6 +122,7 @@ export const InputImage = styled.image`
 
     width: 32px;
     height: 32px;
+
     @media ${props => props.theme.mobile} {
         display: none;
     }
@@ -125,14 +146,10 @@ export const Input = styled.input`
 export const ButtonContainer = styled.div`
 
     margin: auto 0px;
-
+    margin-left:24px;
     display: flex;
     justify-self: right;
 
-    @media ${props => props.theme.mobile} {
-        display: none;
-    }
-    
 
 `;
 export const UserLinkButton = styled.button`

@@ -1,6 +1,6 @@
 import React from "react";
 import { Helmet } from "react-helmet";
-import SignUpComponent from "../../components/signup";
+import SignUpComponent from "../../components/signupPage";
 
 const SignUp: React.FC = () => (
   <>

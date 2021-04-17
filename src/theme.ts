@@ -11,6 +11,7 @@ const theme = {
   greenColor: "#0ba325",
   redColor: "#e63c1e",
   mainColor: "#909090",
+  themeColor: "#1B7EBC",
   mobile: `(max-width: ${size.mobile})`,
   tablet: `(max-width: ${size.tablet})`,
   desktop: `(min-width: ${size.desktop})`,

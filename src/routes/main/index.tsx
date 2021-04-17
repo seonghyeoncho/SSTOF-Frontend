@@ -1,5 +1,5 @@
 import React from "react";
-import MainComponent from "../../components/main";
+import MainComponent from "../../components/mainPage";
 
 const Main: React.FC = () => <MainComponent />;
 
