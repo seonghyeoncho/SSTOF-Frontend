@@ -1,24 +1,24 @@
 import React from 'react';
-import SideNavBar from '../sidebar';
-import { Container, QuestionsContainer, SideNavBarContianer, Title, Wrapper } from './styles';
-
-const Questions: React.FC = () => {
+import SideNavBar from '../common/sidebar';
+import { Container, SideNavBarContianer, TagsContainer, Title, Wrapper } from './styles';
+ 
+const Tags: React.FC = () => {
     return (
         <Container>
             <Wrapper>
                 <SideNavBarContianer>
                     <SideNavBar>
-                        
+
                     </SideNavBar>
                 </SideNavBarContianer>
-                <QuestionsContainer>
+                <TagsContainer>
                     <Title>
-                        Questions
+                        Tags
                     </Title>
-                </QuestionsContainer>
+                </TagsContainer>
             </Wrapper>
         </Container>
     );
 };
 
-export default Questions;
+export default Tags;

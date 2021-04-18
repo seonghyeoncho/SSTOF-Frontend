@@ -1,6 +1,6 @@
 import React from "react";
-import SideNavBar from "../sidebar";
-import FilteredQuestions from "../questionTile";
+import SideNavBar from "../common/sidebar";
+
 import { Container, MainContainer, MainContent, MainContentTitle, MainfillterButtons, SideNavBarContianer, Wrapper } from "./styles";
 
 const Main: React.FC = () => (
@@ -25,7 +25,6 @@ const Main: React.FC = () => (
         </MainfillterButtons>
 
         <MainContent>
-          <FilteredQuestions filter={"filter"}/>
         </MainContent>
 
       </MainContainer>

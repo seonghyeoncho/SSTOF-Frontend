@@ -6,11 +6,11 @@ import {
   Switch,
 } from "react-router-dom";
 import SignUp from "../routes/signup";
-import Header from "./header";
-import Main from "./mainPage";
-import Questions from "./questionsPage";
-import Tags from "./tagsPage";
-import Users from "./usersPage";
+import Header from "./common/header";
+import Main from "./main";
+import Questions from "./questions";
+import Tags from "./tags";
+import Users from "./users";
 
 const RouterComponent: React.FC = () => (
   <Switch>
@@ -39,6 +39,7 @@ const RouterComponent: React.FC = () => (
 const RouterExporter: React.FC = () => (
   <Router>
     <Header/>
+    
     <RouterComponent />
   </Router>
 );
