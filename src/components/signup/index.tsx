@@ -44,6 +44,31 @@ const SignUp: React.FC = () => {
     }
   };
 
+  useEffect(() => {
+    const query = new URLSearchParams(location.search);
+    const error_code = query.get("error_code");
+    if (error_code !== null) {
+      switch (parseInt(error_code)) {
+        case 400:
+          message.error(
+            "해당 Github 계정은 공개 이메일이 설정되어 있지 않습니다."
+          );
+          break;
+        case 406:
+          message.error("해당 이메일은 일반 회원 가입으로 가입되어 있습니다.");
+          break;
+        case 500:
+          message.error(
+            "알 수 없는 문제가 발생했습니다. 관리자에게 문의해 주세요."
+          );
+          break;
+        default:
+          message.error("알 수 없는 오류가 발생했습니다.");
+          break;
+      }
+    }
+  }, [location]);
+
   const regEx = {
     email: /^[A-Za-z0-9_.-]+@[A-Za-z0-9-]+\.[A-Za-z0-9]+/,
   };
@@ -119,7 +144,7 @@ const SignUp: React.FC = () => {
       .then(() => {
         message.destroy();
         alert("회원가입이 완료되었습니다.");
-        // TODO : Move to Login page.
+        window.location.href = "/";
       })
       .catch(({ response: { status } }) => {
         if (status === 400) {
@@ -196,6 +221,13 @@ const SignUp: React.FC = () => {
             >
               회원 가입
             </SignUpButton>
+            <SignupWithGithubButton
+              href={`${process.env.REACT_APP_GITHUB_OAUTH_ADDRESS}`}
+            >
+              <GithubImage bgImage={GITHUB} />
+              <ButtonText>Github로 계속하기</ButtonText>
+            </SignupWithGithubButton>
+
           </InformationContainer>
         </SignupContainer>
       </Wrapper>
