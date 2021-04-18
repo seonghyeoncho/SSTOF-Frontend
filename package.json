@@ -16,7 +16,6 @@
     "@types/styled-components": "^5.1.7",
     "antd": "^4.12.3",
     "axios": "^0.21.1",
-    "babel-plugin-import": "^1.13.3",
     "crypto": "^1.0.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",

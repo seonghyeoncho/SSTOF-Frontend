@@ -92,39 +92,6 @@ export const SignUpButton = styled.button`
   }
 `;
 
-export const SignupWithGithubButton = styled.a`
-  width: 300px;
-  color: white;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 8px;
-  border-radius: 15px;
-  line-height: 1.7;
-  font-weight: bold;
-  background-color: rgb(55, 65, 81);
-  &:hover {
-    cursor: pointer;
-  }
-`;
-
-export const GithubImage = styled.div<{ bgImage: string }>`
-  background-image: url(${(props) => props.bgImage});
-  align-self: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 20px;
-  height: 20px;
-  justify-self: flex-start;
-  margin-right: 5px;
-`;
-
-export const ButtonText = styled.div`
-  font-weight: bold;
-  color: white;
-`;
-
 export const SmallText = styled.div`
   font-size: 9px;
   margin-left: 40px;
