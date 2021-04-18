@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import theme from '../../theme';
 
 export const Container = styled.div`
     @media ${props => props.theme.desktop} {
@@ -59,4 +60,22 @@ export const Title = styled.div`
     font-weight: bold;
 
     margin-bottom: 24px;
+`;
+
+export const AskButtonContainer = styled.div`
+    
+`;
+
+export const AskButton = styled.button`
+    width: 167px;
+    height: 37px;
+    border: none;
+
+    border-radius: 5px;
+
+    background-color: ${theme.mainColor}
+
+    a{
+        color: white;
+    }
 `;

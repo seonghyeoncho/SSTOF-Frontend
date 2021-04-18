@@ -6,6 +6,7 @@ import {
   Switch,
 } from "react-router-dom";
 import SignUp from "../routes/signup";
+import AskQuestion from "./ask";
 import Header from "./common/header";
 import Main from "./main";
 import Questions from "./questions";
@@ -23,8 +24,8 @@ const RouterComponent: React.FC = () => (
     <Route path="/questions">
       <Questions/>
     </Route>
-    <Route path="/questions/ask">
-      <Questions/>
+    <Route path="/ask">
+      <AskQuestion/>
     </Route>
     <Route path="/tags">
       <Tags/>
