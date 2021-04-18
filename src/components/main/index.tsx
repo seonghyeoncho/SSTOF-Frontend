@@ -1,10 +1,36 @@
 import React from "react";
+import SideNavBar from "../common/sidebar";
+
+import { Container, MainContainer, MainContent, MainContentTitle, MainfillterButtons, SideNavBarContianer, Wrapper } from "./styles";
 
 const Main: React.FC = () => (
-  <>
-    <h1>SSUTackOverflow 메인 페이지입니다.</h1>
-    <h2>화이팅~~</h2>
-  </>
+
+  <Container>
+    <Wrapper>
+
+      <SideNavBarContianer>
+        <SideNavBar>
+
+        </SideNavBar>
+      </SideNavBarContianer>
+      
+      <MainContainer>
+
+        <MainContentTitle>
+          Top Questions
+        </MainContentTitle>
+          
+        <MainfillterButtons>
+          filler buttons
+        </MainfillterButtons>
+
+        <MainContent>
+        </MainContent>
+
+      </MainContainer>
+    </Wrapper>
+  </Container>
+  
 );
 
 export default Main;

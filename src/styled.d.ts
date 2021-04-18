@@ -7,5 +7,12 @@ declare module "styled-components" {
     onFocusBackgroundColor: string;
     greenColor: string;
     redColor: string;
+    mainColor: string;
+    themeColor: string;
+    mobile: string,
+    tablet: string,
+    desktop: string,
+
   }
+  
 }
