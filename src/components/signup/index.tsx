@@ -1,10 +1,10 @@
-import React, { createRef, useState, useEffect } from 'react';
-import { message } from 'antd';
-import sha256 from 'crypto';
-import { userApi } from '../../api';
-import { useLocation } from 'react-router';
-import GITHUB from '../../assets/GITHUB.png';
-import { StatusCodes } from 'http-status-codes';
+import React, { createRef, useState, useEffect } from "react";
+import { message } from "antd";
+import sha256 from "crypto";
+import { userApi } from "../../api";
+import { useLocation } from "react-router";
+import GITHUB from "../../assets/GITHUB.png";
+import { StatusCodes } from "http-status-codes";
 import {
   Container,
   InformationContainer,
@@ -19,13 +19,13 @@ import {
   SignupWithGithubButton,
   ButtonText,
   GithubImage,
-} from './styles';
+} from "./styles";
 
 const SignUp: React.FC = () => {
-  const [email, setEmail] = useState<string>('');
-  const [password, setPassword] = useState<string>('');
-  const [confirmPassword, setConfirmPassword] = useState<string>('');
-  const [name, setName] = useState<string>('');
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [confirmPassword, setConfirmPassword] = useState<string>("");
+  const [name, setName] = useState<string>("");
   const emailRef: React.RefObject<HTMLInputElement> = createRef();
   const passwordRef: React.RefObject<HTMLInputElement> = createRef();
   const confirmPasswordRef: React.RefObject<HTMLInputElement> = createRef();
@@ -33,44 +33,44 @@ const SignUp: React.FC = () => {
 
   const clearAllInputs = () => {
     if (emailRef.current) {
-      emailRef.current.value = '';
-      setEmail('');
+      emailRef.current.value = "";
+      setEmail("");
     }
     if (passwordRef.current) {
-      passwordRef.current.value = '';
-      setPassword('');
+      passwordRef.current.value = "";
+      setPassword("");
     }
     if (confirmPasswordRef.current) {
-      confirmPasswordRef.current.value = '';
-      setConfirmPassword('');
+      confirmPasswordRef.current.value = "";
+      setConfirmPassword("");
     }
     if (nameRef.current) {
-      nameRef.current.value = '';
-      setName('');
+      nameRef.current.value = "";
+      setName("");
     }
   };
 
   const location = useLocation();
   useEffect(() => {
     const query = new URLSearchParams(location.search);
-    const error_code = query.get('error_code');
+    const error_code = query.get("error_code");
     if (error_code !== null) {
       switch (parseInt(error_code)) {
         case StatusCodes.BAD_REQUEST:
           message.error(
-            '해당 Github 계정은 공개 이메일이 설정되어 있지 않습니다.',
+            "해당 Github 계정은 공개 이메일이 설정되어 있지 않습니다.",
           );
           break;
         case StatusCodes.NOT_ACCEPTABLE:
-          message.error('해당 이메일은 일반 회원 가입으로 가입되어 있습니다.');
+          message.error("해당 이메일은 일반 회원 가입으로 가입되어 있습니다.");
           break;
         case StatusCodes.INTERNAL_SERVER_ERROR:
           message.error(
-            '알 수 없는 문제가 발생했습니다. 관리자에게 문의해 주세요.',
+            "알 수 없는 문제가 발생했습니다. 관리자에게 문의해 주세요.",
           );
           break;
         default:
-          message.error('알 수 없는 오류가 발생했습니다.');
+          message.error("알 수 없는 오류가 발생했습니다.");
           break;
       }
     }
@@ -81,17 +81,17 @@ const SignUp: React.FC = () => {
   };
 
   const checkPasswordMatch = (): boolean => {
-    const element = document.getElementById('confirmPasswordText');
-    if (!!element) {
-      if (password === '' || confirmPassword === '') {
-        element.innerHTML = '비밀번호를 입력해 주세요.';
+    const element = document.getElementById("confirmPasswordText");
+    if (element) {
+      if (password === "" || confirmPassword === "") {
+        element.innerHTML = "비밀번호를 입력해 주세요.";
         return false;
       } else {
         if (password === confirmPassword) {
-          element.innerHTML = '비밀번호가 일치합니다.';
+          element.innerHTML = "비밀번호가 일치합니다.";
           return true;
         } else {
-          element.innerHTML = '비밀번호가 일치하지 않습니다.';
+          element.innerHTML = "비밀번호가 일치하지 않습니다.";
           return false;
         }
       }
@@ -99,76 +99,76 @@ const SignUp: React.FC = () => {
   };
 
   const checkEmailFormat = (): boolean => {
-    const element = document.getElementById('emailText');
+    const element = document.getElementById("emailText");
     if (regEx.email.test(email)) {
-      if (!!element) {
-        element.innerHTML = '올바른 이메일 형식입니다.';
+      if (element) {
+        element.innerHTML = "올바른 이메일 형식입니다.";
       }
       return true;
     } else {
-      if (!!element) {
-        if (email === '') {
-          element.innerHTML = '이메일을 입력해 주세요.';
+      if (element) {
+        if (email === "") {
+          element.innerHTML = "이메일을 입력해 주세요.";
         } else {
-          element.innerHTML = '올바르지 않은 이메일 형식입니다.';
+          element.innerHTML = "올바르지 않은 이메일 형식입니다.";
         }
       }
       return false;
     }
   };
 
-  const handleSignup = (event: React.FormEvent) => {
-    event.preventDefault();
-    message.destroy();
-    if (email === '') {
-      message.warning('이메일을 입력해 주세요.');
-      return;
-    }
-    if (email !== '' && regEx.email.test(email) === false) {
-      message.warning('올바른 이메일 형식이 아닙니다.');
-      return;
-    }
-    if (name === '') {
-      message.warning('이름(닉네임)을 입력해 주세요.');
-      return;
-    }
-    if (password === '') {
-      message.warning('비밀번호를 입력해 주세요.');
-      return;
-    }
-    if (password !== confirmPassword) {
-      message.warning('비밀번호가 일치하지 않습니다.');
-      return;
-    }
-    const requestBody = {
-      email: email,
-      password: sha256.createHash('sha256').update(password).digest('hex'),
-      name: name,
-    };
-    message.loading('잠시만 기다려 주세요..');
-    userApi
-      .signUp(requestBody)
-      .then(() => {
-        message.destroy();
-        alert('회원가입이 완료되었습니다.');
-        window.location.href = '/';
-      })
-      .catch(({ response: { status } }) => {
-        if (status === 400) {
-          message.destroy();
-          message.warning('[400] 요청 형식이 잘못 되었습니다.');
-          clearAllInputs();
-        } else if (status === 409) {
-          message.destroy();
-          message.warning('해당 이메일은 이미 사용 중입니다.');
-          clearAllInputs();
-        } else {
-          message.warning('알 수 없는 오류가 발생했습니다.');
-          console.log(status);
-          clearAllInputs();
-        }
-      });
-  };
+  // const handleSignup = (event: React.FormEvent) => {
+  //   event.preventDefault();
+  //   message.destroy();
+  //   if (email === '') {
+  //     message.warning('이메일을 입력해 주세요.');
+  //     return;
+  //   }
+  //   if (email !== '' && regEx.email.test(email) === false) {
+  //     message.warning('올바른 이메일 형식이 아닙니다.');
+  //     return;
+  //   }
+  //   if (name === '') {
+  //     message.warning('이름(닉네임)을 입력해 주세요.');
+  //     return;
+  //   }
+  //   if (password === '') {
+  //     message.warning('비밀번호를 입력해 주세요.');
+  //     return;
+  //   }
+  //   if (password !== confirmPassword) {
+  //     message.warning('비밀번호가 일치하지 않습니다.');
+  //     return;
+  //   }
+  //   const requestBody = {
+  //     email: email,
+  //     password: sha256.createHash('sha256').update(password).digest('hex'),
+  //     name: name,
+  //   };
+  //   message.loading('잠시만 기다려 주세요..');
+  //   userApi
+  //     .signUp(requestBody)
+  //     .then(() => {
+  //       message.destroy();
+  //       alert('회원가입이 완료되었습니다.');
+  //       window.location.href = '/';
+  //     })
+  //     .catch(({ response: { status } }) => {
+  //       if (status === 400) {
+  //         message.destroy();
+  //         message.warning('[400] 요청 형식이 잘못 되었습니다.');
+  //         clearAllInputs();
+  //       } else if (status === 409) {
+  //         message.destroy();
+  //         message.warning('해당 이메일은 이미 사용 중입니다.');
+  //         clearAllInputs();
+  //       } else {
+  //         message.warning('알 수 없는 오류가 발생했습니다.');
+  //         console.log(status);
+  //         clearAllInputs();
+  //       }
+  //     });
+  // };
   return (
     <Container>
       <Wrapper>
@@ -221,10 +221,10 @@ const SignUp: React.FC = () => {
               onChange={(event: React.SyntheticEvent<HTMLInputElement>) => {
                 setName(event.currentTarget.value);
               }}
-              isValid={name !== ''}
+              isValid={name !== ""}
             />
             <SignUpButton
-              onClick={(event: React.FormEvent) => handleSignup(event)}
+              onClick={(event: React.FormEvent) => console.log(event)}
             >
               회원 가입
             </SignUpButton>

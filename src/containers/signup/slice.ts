@@ -1,17 +1,17 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { SignupState, UserSignupData } from './interface';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { SignupState, UserSignupData } from "./interface";
 
 const initialState: SignupState = {
   is_loading: false,
   user: {
-    email: '',
-    password: '',
-    name: '',
+    email: "",
+    password: "",
+    name: "",
   },
 };
 
 const signupSlice = createSlice({
-  name: 'signup',
+  name: "signup",
   initialState,
   reducers: {
     signup(state, action: PayloadAction<UserSignupData>) {

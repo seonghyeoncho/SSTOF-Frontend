@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 import {
     Container, 
     HomeLinkTitle, 
@@ -8,11 +8,10 @@ import {
     PublicLinkTitle, 
     Wrapper,
 
-} from './styles';
+} from "./styles";
 
 
-const SideNavBar: React.FC = () => {
-    return (
+const SideNavBar: React.FC = () => (
         <Container>
             <Wrapper>
                 <HomeLinkTitle>
@@ -33,6 +32,5 @@ const SideNavBar: React.FC = () => {
             </Wrapper>
         </Container>
     );
-};
 
 export default SideNavBar;
