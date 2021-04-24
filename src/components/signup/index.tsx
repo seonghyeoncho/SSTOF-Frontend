@@ -15,7 +15,6 @@ import {
   Input,
   InputTitle,
   SignUpButton,
-  SmallText,
   SignupWithGithubButton,
   ButtonText,
   GithubImage,
@@ -79,7 +78,6 @@ const SignUp = ({
               }}
               isValid={email.is_complete}
             />
-            <SmallText id="emailText">이메일을 입력해 주세요.</SmallText>
             <InputTitle>비밀 번호</InputTitle>
             <Input
               type="password"
@@ -100,9 +98,6 @@ const SignUp = ({
               }}
               isValid={confirmPassword.is_complete}
             />
-            <SmallText id="confirmPasswordText">
-              비밀번호를 입력해 주세요.
-            </SmallText>
             <InputTitle>이름(닉네임)</InputTitle>
             <Input
               type="name"
@@ -113,11 +108,7 @@ const SignUp = ({
               }}
               isValid={name.is_complete}
             />
-            <SignUpButton
-              onClick={(event: React.FormEvent) => console.log(event)}
-            >
-              회원 가입
-            </SignUpButton>
+            <SignUpButton onClick={() => signUp}>회원 가입</SignUpButton>
             <SignupWithGithubButton
               href={`${process.env.REACT_APP_GITHUB_OAUTH_ADDRESS}`}
             >

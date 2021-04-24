@@ -12,6 +12,12 @@ const SignupContainer: React.FC = () => {
   const nameRef = useRef<HTMLInputElement>(null);
 
   const dispatch = useDispatch();
+  const checkComplete = (): boolean =>
+    email.is_complete &&
+    password.is_complete &&
+    confirmPassword.is_complete &&
+    name.is_complete;
+
   const signUpSagaDispatch = (data: UserSignupData) => {
     const { password } = data;
     const newPassword = sha256
@@ -19,7 +25,9 @@ const SignupContainer: React.FC = () => {
       .update(password)
       .digest("hex");
     data.password = newPassword;
-    dispatch({ type: "signup/signupSaga", payload: { data } });
+    if (checkComplete()) {
+      dispatch({ type: "signup/signupSaga", payload: { data } });
+    }
   };
 
   const onEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {

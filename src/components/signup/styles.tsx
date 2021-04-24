@@ -92,14 +92,6 @@ export const SignUpButton = styled.button`
   }
 `;
 
-export const SmallText = styled.div`
-  font-size: 9px;
-  margin-left: 40px;
-  color: white;
-  margin-top: 9px;
-  align-self: flex-start;
-`;
-
 export const SignupWithGithubButton = styled.a`
   width: 300px;
   color: white;
