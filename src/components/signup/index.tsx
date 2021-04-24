@@ -20,35 +20,42 @@ import {
   ButtonText,
   GithubImage,
 } from "./styles";
+import { SignupProps } from "./interface";
 
-const SignUp: React.FC = () => {
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
-  const [confirmPassword, setConfirmPassword] = useState<string>("");
-  const [name, setName] = useState<string>("");
+const SignUp: React.FC<SignupProps> = ({
+  email,
+  password,
+  confirmPassword,
+  name,
+  signUp,
+}) => {
+  // const  [email2, setEmail] = useState<string>("");
+  // const [password2, setPassword] = useState<string>("");
+  // const [confirmPassword, setConfirmPassword] = useState<string>("");
+  // const [name2, setName] = useState<string>("");
   const emailRef: React.RefObject<HTMLInputElement> = createRef();
   const passwordRef: React.RefObject<HTMLInputElement> = createRef();
   const confirmPasswordRef: React.RefObject<HTMLInputElement> = createRef();
   const nameRef: React.RefObject<HTMLInputElement> = createRef();
 
-  const clearAllInputs = () => {
-    if (emailRef.current) {
-      emailRef.current.value = "";
-      setEmail("");
-    }
-    if (passwordRef.current) {
-      passwordRef.current.value = "";
-      setPassword("");
-    }
-    if (confirmPasswordRef.current) {
-      confirmPasswordRef.current.value = "";
-      setConfirmPassword("");
-    }
-    if (nameRef.current) {
-      nameRef.current.value = "";
-      setName("");
-    }
-  };
+  // const clearAllInputs = () => {
+  //   if (emailRef.current) {
+  //     emailRef.current.value = "";
+  //     setEmail("");
+  //   }
+  //   if (passwordRef.current) {
+  //     passwordRef.current.value = "";
+  //     setPassword("");
+  //   }
+  //   if (confirmPasswordRef.current) {
+  //     confirmPasswordRef.current.value = "";
+  //     setConfirmPassword("");
+  //   }
+  //   if (nameRef.current) {
+  //     nameRef.current.value = "";
+  //     setName("");
+  //   }
+  // };
 
   const location = useLocation();
   useEffect(() => {
@@ -80,95 +87,6 @@ const SignUp: React.FC = () => {
     email: /^[A-Za-z0-9_.-]+@[A-Za-z0-9-]+\.[A-Za-z0-9]+/,
   };
 
-  const checkPasswordMatch = (): boolean => {
-    const element = document.getElementById("confirmPasswordText");
-    if (element) {
-      if (password === "" || confirmPassword === "") {
-        element.innerHTML = "비밀번호를 입력해 주세요.";
-        return false;
-      } else {
-        if (password === confirmPassword) {
-          element.innerHTML = "비밀번호가 일치합니다.";
-          return true;
-        } else {
-          element.innerHTML = "비밀번호가 일치하지 않습니다.";
-          return false;
-        }
-      }
-    } else return false;
-  };
-
-  const checkEmailFormat = (): boolean => {
-    const element = document.getElementById("emailText");
-    if (regEx.email.test(email)) {
-      if (element) {
-        element.innerHTML = "올바른 이메일 형식입니다.";
-      }
-      return true;
-    } else {
-      if (element) {
-        if (email === "") {
-          element.innerHTML = "이메일을 입력해 주세요.";
-        } else {
-          element.innerHTML = "올바르지 않은 이메일 형식입니다.";
-        }
-      }
-      return false;
-    }
-  };
-
-  // const handleSignup = (event: React.FormEvent) => {
-  //   event.preventDefault();
-  //   message.destroy();
-  //   if (email === '') {
-  //     message.warning('이메일을 입력해 주세요.');
-  //     return;
-  //   }
-  //   if (email !== '' && regEx.email.test(email) === false) {
-  //     message.warning('올바른 이메일 형식이 아닙니다.');
-  //     return;
-  //   }
-  //   if (name === '') {
-  //     message.warning('이름(닉네임)을 입력해 주세요.');
-  //     return;
-  //   }
-  //   if (password === '') {
-  //     message.warning('비밀번호를 입력해 주세요.');
-  //     return;
-  //   }
-  //   if (password !== confirmPassword) {
-  //     message.warning('비밀번호가 일치하지 않습니다.');
-  //     return;
-  //   }
-  //   const requestBody = {
-  //     email: email,
-  //     password: sha256.createHash('sha256').update(password).digest('hex'),
-  //     name: name,
-  //   };
-  //   message.loading('잠시만 기다려 주세요..');
-  //   userApi
-  //     .signUp(requestBody)
-  //     .then(() => {
-  //       message.destroy();
-  //       alert('회원가입이 완료되었습니다.');
-  //       window.location.href = '/';
-  //     })
-  //     .catch(({ response: { status } }) => {
-  //       if (status === 400) {
-  //         message.destroy();
-  //         message.warning('[400] 요청 형식이 잘못 되었습니다.');
-  //         clearAllInputs();
-  //       } else if (status === 409) {
-  //         message.destroy();
-  //         message.warning('해당 이메일은 이미 사용 중입니다.');
-  //         clearAllInputs();
-  //       } else {
-  //         message.warning('알 수 없는 오류가 발생했습니다.');
-  //         console.log(status);
-  //         clearAllInputs();
-  //       }
-  //     });
-  // };
   return (
     <Container>
       <Wrapper>
@@ -242,3 +160,93 @@ const SignUp: React.FC = () => {
 };
 
 export default SignUp;
+
+// const checkPasswordMatch = (): boolean => {
+//   const element = document.getElementById("confirmPasswordText");
+//   if (element) {
+//     if (password === "" || confirmPassword === "") {
+//       element.innerHTML = "비밀번호를 입력해 주세요.";
+//       return false;
+//     } else {
+//       if (password === confirmPassword) {
+//         element.innerHTML = "비밀번호가 일치합니다.";
+//         return true;
+//       } else {
+//         element.innerHTML = "비밀번호가 일치하지 않습니다.";
+//         return false;
+//       }
+//     }
+//   } else return false;
+// };
+
+// const checkEmailFormat = (): boolean => {
+//   const element = document.getElementById("emailText");
+//   if (regEx.email.test(email)) {
+//     if (element) {
+//       element.innerHTML = "올바른 이메일 형식입니다.";
+//     }
+//     return true;
+//   } else {
+//     if (element) {
+//       if (email === "") {
+//         element.innerHTML = "이메일을 입력해 주세요.";
+//       } else {
+//         element.innerHTML = "올바르지 않은 이메일 형식입니다.";
+//       }
+//     }
+//     return false;
+//   }
+// };
+
+// const handleSignup = (event: React.FormEvent) => {
+//   event.preventDefault();
+//   message.destroy();
+//   if (email === '') {
+//     message.warning('이메일을 입력해 주세요.');
+//     return;
+//   }
+//   if (email !== '' && regEx.email.test(email) === false) {
+//     message.warning('올바른 이메일 형식이 아닙니다.');
+//     return;
+//   }
+//   if (name === '') {
+//     message.warning('이름(닉네임)을 입력해 주세요.');
+//     return;
+//   }
+//   if (password === '') {
+//     message.warning('비밀번호를 입력해 주세요.');
+//     return;
+//   }
+//   if (password !== confirmPassword) {
+//     message.warning('비밀번호가 일치하지 않습니다.');
+//     return;
+//   }
+//   const requestBody = {
+//     email: email,
+//     password: sha256.createHash('sha256').update(password).digest('hex'),
+//     name: name,
+//   };
+//   message.loading('잠시만 기다려 주세요..');
+//   userApi
+//     .signUp(requestBody)
+//     .then(() => {
+//       message.destroy();
+//       alert('회원가입이 완료되었습니다.');
+//       window.location.href = '/';
+//     })
+//     .catch(({ response: { status } }) => {
+//       if (status === 400) {
+//         message.destroy();
+//         message.warning('[400] 요청 형식이 잘못 되었습니다.');
+//         clearAllInputs();
+//       } else if (status === 409) {
+//         message.destroy();
+//         message.warning('해당 이메일은 이미 사용 중입니다.');
+//         clearAllInputs();
+//       } else {
+//         message.warning('알 수 없는 오류가 발생했습니다.');
+//         console.log(status);
+//         clearAllInputs();
+//       }
+//     });
+// };

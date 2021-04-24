@@ -1,8 +1,8 @@
-import axios from 'axios';
+import axios from "axios";
 import {
   UserSignupData,
   UserSignupResponse,
-} from './containers/signup/interface';
+} from "./containers/signup/interface";
 
 const api = axios.create({
   baseURL: process.env.REACT_APP_API_ADDRESS,
@@ -10,7 +10,7 @@ const api = axios.create({
 
 export const userApi = {
   signup: async (data: UserSignupData): Promise<UserSignupResponse> => {
-    const result = await api.post('user', data);
+    const result = await api.post("user", data);
     const response: UserSignupResponse = {
       userId: result.data.userId,
       name: result.data.name,
