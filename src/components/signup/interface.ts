@@ -10,7 +10,6 @@ export interface SignupProps {
   name: SignupInputProps;
   nameRef: React.RefObject<HTMLInputElement>;
   signUp: (data: UserSignupData) => void;
-  clearInputs: () => void;
 }
 
 export interface SignupInputProps {

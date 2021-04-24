@@ -124,7 +124,7 @@ const SignupContainer: React.FC = () => {
       name={name}
       nameRef={nameRef}
       signUp={signUpSagaDispatch}
-      clearInputs={clearAllInputs}
+      //   clearInputs={clearAllInputs}
     />
   );
 };

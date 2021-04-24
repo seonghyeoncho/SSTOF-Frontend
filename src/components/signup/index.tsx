@@ -32,17 +32,7 @@ const SignUp = ({
   name,
   nameRef,
   signUp,
-  clearInputs,
 }: SignupProps): JSX.Element => {
-  // const  [email2, setEmail] = useState<string>("");
-  // const [password2, setPassword] = useState<string>("");
-  // const [confirmPassword, setConfirmPassword] = useState<string>("");
-  // const [name2, setName] = useState<string>("");
-  // const emailRef: React.RefObject<HTMLInputElement> = createRef();
-  // const passwordRef: React.RefObject<HTMLInputElement> = createRef();
-  // const confirmPasswordRef: React.RefObject<HTMLInputElement> = createRef();
-  // const nameRef: React.RefObject<HTMLInputElement> = createRef();
-
   const location = useLocation();
   useEffect(() => {
     const query = new URLSearchParams(location.search);
@@ -68,10 +58,6 @@ const SignUp = ({
       }
     }
   }, [location]);
-
-  const regEx = {
-    email: /^[A-Za-z0-9_.-]+@[A-Za-z0-9-]+\.[A-Za-z0-9]+/,
-  };
 
   return (
     <Container>
