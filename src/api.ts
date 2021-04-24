@@ -1,10 +1,13 @@
-import axios from "axios";
-import { IUserCreateRequest } from "./components/user/interfaces/user-create-request.interface";
+import axios, { AxiosResponse } from 'axios';
+import { UserSignupData } from './containers/signup/interface';
 
 const api = axios.create({
   baseURL: process.env.REACT_APP_API_ADDRESS,
 });
 
 export const userApi = {
-  signUp: (body: IUserCreateRequest) => api.post("user", body),
+  signup: async (data: UserSignupData): Promise<AxiosResponse> => {
+    const response = await api.post('user', data);
+    return response;
+  },
 };
