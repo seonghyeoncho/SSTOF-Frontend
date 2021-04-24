@@ -1,7 +1,5 @@
-import React, { createRef, useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { message } from "antd";
-import sha256 from "crypto";
-import { userApi } from "../../api";
 import { useLocation } from "react-router";
 import GITHUB from "../../assets/GITHUB.png";
 import { StatusCodes } from "http-status-codes";

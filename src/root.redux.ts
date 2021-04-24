@@ -17,6 +17,8 @@ function* rootSaga() {
 
 const sagaMiddleware = createSagaMiddleware();
 
+export type RootState = ReturnType<typeof RootReducer>;
+
 const Store = configureStore({
   reducer: RootReducer,
   middleware: [sagaMiddleware],

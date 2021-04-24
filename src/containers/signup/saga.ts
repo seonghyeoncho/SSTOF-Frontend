@@ -5,6 +5,7 @@ import { StatusCodes } from "http-status-codes";
 import { message } from "antd";
 
 function* signupSaga(action: { type: string; payload: UserSignupData }) {
+  console.log(action.payload);
   yield put({ type: "signup/setSignupLoading", payload: true });
   message.loading("잠시만 기다려 주세요.");
   try {

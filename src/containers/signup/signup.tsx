@@ -19,15 +19,16 @@ const SignupContainer: React.FC = () => {
     name.is_complete;
 
   const signUpSagaDispatch = (data: UserSignupData) => {
-    const { password } = data;
-    const newPassword = sha256
-      .createHash("sha256")
-      .update(password)
-      .digest("hex");
-    data.password = newPassword;
-    if (checkComplete()) {
-      dispatch({ type: "signup/signupSaga", payload: { data } });
-    }
+    console.log(data);
+    // const { password } = data;
+    // const newPassword = sha256
+    //   .createHash("sha256")
+    //   .update(password)
+    //   .digest("hex");
+    // data.password = newPassword;
+    // if (checkComplete()) {
+    //   dispatch({ type: "signup/signupSaga", payload: { data } });
+    // }
   };
 
   const onEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
