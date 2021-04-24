@@ -1,13 +1,20 @@
+import { UserSignupData } from "../../containers/signup/interface";
+
 export interface SignupProps {
   email: SignupInputProps;
+  emailRef: React.RefObject<HTMLInputElement>;
   password: SignupInputProps;
+  passwordRef: React.RefObject<HTMLInputElement>;
   confirmPassword: SignupInputProps;
+  confirmPasswordRef: React.RefObject<HTMLInputElement>;
   name: SignupInputProps;
-  signUp: () => void;
+  nameRef: React.RefObject<HTMLInputElement>;
+  signUp: (data: UserSignupData) => void;
+  clearInputs: () => void;
 }
 
 export interface SignupInputProps {
   value: string;
   is_complete: boolean;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }

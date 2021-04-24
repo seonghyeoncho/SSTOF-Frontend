@@ -22,40 +22,26 @@ import {
 } from "./styles";
 import { SignupProps } from "./interface";
 
-const SignUp: React.FC<SignupProps> = ({
+const SignUp = ({
   email,
+  emailRef,
   password,
+  passwordRef,
   confirmPassword,
+  confirmPasswordRef,
   name,
+  nameRef,
   signUp,
-}) => {
+  clearInputs,
+}: SignupProps): JSX.Element => {
   // const  [email2, setEmail] = useState<string>("");
   // const [password2, setPassword] = useState<string>("");
   // const [confirmPassword, setConfirmPassword] = useState<string>("");
   // const [name2, setName] = useState<string>("");
-  const emailRef: React.RefObject<HTMLInputElement> = createRef();
-  const passwordRef: React.RefObject<HTMLInputElement> = createRef();
-  const confirmPasswordRef: React.RefObject<HTMLInputElement> = createRef();
-  const nameRef: React.RefObject<HTMLInputElement> = createRef();
-
-  // const clearAllInputs = () => {
-  //   if (emailRef.current) {
-  //     emailRef.current.value = "";
-  //     setEmail("");
-  //   }
-  //   if (passwordRef.current) {
-  //     passwordRef.current.value = "";
-  //     setPassword("");
-  //   }
-  //   if (confirmPasswordRef.current) {
-  //     confirmPasswordRef.current.value = "";
-  //     setConfirmPassword("");
-  //   }
-  //   if (nameRef.current) {
-  //     nameRef.current.value = "";
-  //     setName("");
-  //   }
-  // };
+  // const emailRef: React.RefObject<HTMLInputElement> = createRef();
+  // const passwordRef: React.RefObject<HTMLInputElement> = createRef();
+  // const confirmPasswordRef: React.RefObject<HTMLInputElement> = createRef();
+  // const nameRef: React.RefObject<HTMLInputElement> = createRef();
 
   const location = useLocation();
   useEffect(() => {
@@ -102,10 +88,10 @@ const SignUp: React.FC<SignupProps> = ({
               id="email"
               placeholder="example@example.com"
               ref={emailRef}
-              onChange={(event: React.SyntheticEvent<HTMLInputElement>) => {
-                setEmail(event.currentTarget.value);
+              onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                email.onChange(event);
               }}
-              isValid={checkEmailFormat()}
+              isValid={email.is_complete}
             />
             <SmallText id="emailText">이메일을 입력해 주세요.</SmallText>
             <InputTitle>비밀 번호</InputTitle>
@@ -113,20 +99,20 @@ const SignUp: React.FC<SignupProps> = ({
               type="password"
               id="password"
               ref={passwordRef}
-              onChange={(event: React.SyntheticEvent<HTMLInputElement>) => {
-                setPassword(event.currentTarget.value);
+              onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                password.onChange(event);
               }}
-              isValid={checkPasswordMatch()}
+              isValid={password.is_complete}
             />
             <InputTitle>비밀 번호 확인</InputTitle>
             <Input
               type="password"
               id="confirmPassword"
               ref={confirmPasswordRef}
-              onChange={(event: React.SyntheticEvent<HTMLInputElement>) => {
-                setConfirmPassword(event.currentTarget.value);
+              onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                confirmPassword.onChange(event);
               }}
-              isValid={checkPasswordMatch()}
+              isValid={confirmPassword.is_complete}
             />
             <SmallText id="confirmPasswordText">
               비밀번호를 입력해 주세요.
@@ -136,10 +122,10 @@ const SignUp: React.FC<SignupProps> = ({
               type="name"
               id="name"
               ref={nameRef}
-              onChange={(event: React.SyntheticEvent<HTMLInputElement>) => {
-                setName(event.currentTarget.value);
+              onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+                name.onChange(event);
               }}
-              isValid={name !== ""}
+              isValid={name.is_complete}
             />
             <SignUpButton
               onClick={(event: React.FormEvent) => console.log(event)}

@@ -1,8 +1,9 @@
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { SignupInputProps } from "../../components/signup/interface";
 import { UserSignupData } from "./interface";
 import sha256 from "crypto";
+import Signup from "../../components/signup/index";
 
 const SignupContainer: React.FC = () => {
   const emailRef = useRef<HTMLInputElement>(null);
@@ -48,7 +49,7 @@ const SignupContainer: React.FC = () => {
     if (password.value === newConfirmPassword.value) {
       newConfirmPassword.is_complete = true;
     }
-    setconfirmPassword({ ...newConfirmPassword });
+    setConfirmPassword({ ...newConfirmPassword });
   };
 
   const onNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -73,7 +74,7 @@ const SignupContainer: React.FC = () => {
     is_complete: false,
   });
 
-  const [confirmPassword, setconfirmPassword] = useState<SignupInputProps>({
+  const [confirmPassword, setConfirmPassword] = useState<SignupInputProps>({
     value: "",
     onChange: onConfirmPasswordChange,
     is_complete: false,
@@ -84,6 +85,48 @@ const SignupContainer: React.FC = () => {
     onChange: onNameChange,
     is_complete: false,
   });
+
+  const clearAllInputs = () => {
+    if (emailRef.current) {
+      emailRef.current.value = "";
+      const newEmail = { ...email };
+      newEmail.value = "";
+      setEmail({ ...newEmail });
+    }
+    if (passwordRef.current) {
+      passwordRef.current.value = "";
+      const newPassword = { ...password };
+      newPassword.value = "";
+      setPassword({ ...newPassword });
+    }
+    if (confirmPasswordRef.current) {
+      confirmPasswordRef.current.value = "";
+      const newConfirmPassword = { ...confirmPassword };
+      newConfirmPassword.value = "";
+      setConfirmPassword({ ...newConfirmPassword });
+    }
+    if (nameRef.current) {
+      nameRef.current.value = "";
+      const neWName = { ...name };
+      neWName.value = "";
+      setName({ ...neWName });
+    }
+  };
+
+  return (
+    <Signup
+      email={email}
+      emailRef={emailRef}
+      password={password}
+      passwordRef={passwordRef}
+      confirmPassword={confirmPassword}
+      confirmPasswordRef={confirmPasswordRef}
+      name={name}
+      nameRef={nameRef}
+      signUp={signUpSagaDispatch}
+      clearInputs={clearAllInputs}
+    />
+  );
 };
 
 export default SignupContainer;
