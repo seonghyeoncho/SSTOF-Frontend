@@ -4,6 +4,7 @@ import sha256 from 'crypto';
 import { userApi } from '../../api';
 import { useLocation } from 'react-router';
 import GITHUB from '../../assets/GITHUB.png';
+import { StatusCodes } from 'http-status-codes';
 import {
   Container,
   InformationContainer,
@@ -55,15 +56,15 @@ const SignUp: React.FC = () => {
     const error_code = query.get('error_code');
     if (error_code !== null) {
       switch (parseInt(error_code)) {
-        case 400:
+        case StatusCodes.BAD_REQUEST:
           message.error(
             '해당 Github 계정은 공개 이메일이 설정되어 있지 않습니다.',
           );
           break;
-        case 406:
+        case StatusCodes.NOT_ACCEPTABLE:
           message.error('해당 이메일은 일반 회원 가입으로 가입되어 있습니다.');
           break;
-        case 500:
+        case StatusCodes.INTERNAL_SERVER_ERROR:
           message.error(
             '알 수 없는 문제가 발생했습니다. 관리자에게 문의해 주세요.',
           );
