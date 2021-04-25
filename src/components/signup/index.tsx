@@ -106,7 +106,7 @@ const SignUp = ({
               }}
               isValid={name.is_complete}
             />
-            <SignUpButton onClick={() => signUp}>회원 가입</SignUpButton>
+            <SignUpButton onClick={signUp}>회원 가입</SignUpButton>
             <SignupWithGithubButton
               href={`${process.env.REACT_APP_GITHUB_OAUTH_ADDRESS}`}
             >

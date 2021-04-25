@@ -78,7 +78,8 @@ export const InputTitle = styled.div`
   align-self: flex-start;
 `;
 
-export const SignUpButton = styled.button`
+// TODO : button으로 변경
+export const SignUpButton = styled.div`
   width: 300px;
   color: white;
   text-align: center;

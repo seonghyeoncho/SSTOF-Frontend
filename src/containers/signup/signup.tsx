@@ -20,14 +20,14 @@ const SignupContainer: React.FC = () => {
 
   const signUpSagaDispatch = (data: UserSignupData) => {
     console.log(data);
-    // const { password } = data;
-    // const newPassword = sha256
-    //   .createHash("sha256")
-    //   .update(password)
-    //   .digest("hex");
-    // data.password = newPassword;
+    const { password } = data;
+    const newPassword = sha256
+      .createHash("sha256")
+      .update(password)
+      .digest("hex");
+    data.password = newPassword;
     // if (checkComplete()) {
-    //   dispatch({ type: "signup/signupSaga", payload: { data } });
+    dispatch({ type: "signup/signupSaga", payload: { data } });
     // }
   };
 
@@ -122,6 +122,18 @@ const SignupContainer: React.FC = () => {
     }
   };
 
+  const signup = () => {
+    if (!checkComplete()) {
+      console.log("BAD");
+      return;
+    }
+    signUpSagaDispatch({
+      email: email.value,
+      password: password.value,
+      name: name.value,
+    });
+  };
+
   return (
     <Signup
       email={email}
@@ -132,7 +144,7 @@ const SignupContainer: React.FC = () => {
       confirmPasswordRef={confirmPasswordRef}
       name={name}
       nameRef={nameRef}
-      signUp={signUpSagaDispatch}
+      signUp={signup}
       //   clearInputs={clearAllInputs}
     />
   );

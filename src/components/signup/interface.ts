@@ -9,7 +9,7 @@ export interface SignupProps {
   confirmPasswordRef: React.RefObject<HTMLInputElement>;
   name: SignupInputProps;
   nameRef: React.RefObject<HTMLInputElement>;
-  signUp: (data: UserSignupData) => void;
+  signUp: () => void;
 }
 
 export interface SignupInputProps {
