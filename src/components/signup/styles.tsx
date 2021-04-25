@@ -78,8 +78,7 @@ export const InputTitle = styled.div`
   align-self: flex-start;
 `;
 
-// TODO : button으로 변경
-export const SignUpButton = styled.div`
+export const SignUpButton = styled.div<{ isValid: boolean }>`
   width: 300px;
   color: white;
   text-align: center;
@@ -87,9 +86,10 @@ export const SignUpButton = styled.div`
   border-radius: 15px;
   line-height: 1.7;
   font-weight: bold;
+  opacity: ${(props) => (props.isValid ? 1 : 0.5)};
   background-color: ${(props) => props.theme.blueColor};
   &:hover {
-    cursor: pointer;
+    cursor: ${(props) => (props.isValid ? "pointer" : "default")};
   }
 `;
 

@@ -5,7 +5,6 @@ export interface UserSignupData {
 }
 
 export interface SignupState {
-  is_loading: boolean;
   user: UserSignupData;
 }
 

@@ -4,6 +4,7 @@ import { SignupInputProps } from "../../components/signup/interface";
 import { UserSignupData } from "./interface";
 import sha256 from "crypto";
 import Signup from "../../components/signup/index";
+import { message } from "antd";
 
 const SignupContainer: React.FC = () => {
   const emailRef = useRef<HTMLInputElement>(null);
@@ -11,8 +12,6 @@ const SignupContainer: React.FC = () => {
   const nameRef = useRef<HTMLInputElement>(null);
 
   const dispatch = useDispatch();
-  const checkComplete = (): boolean =>
-    email.is_complete && password.is_complete && name.is_complete;
 
   const signUpSagaDispatch = (data: UserSignupData) => {
     const { password } = data;
@@ -73,29 +72,26 @@ const SignupContainer: React.FC = () => {
     is_complete: false,
   });
 
-  const clearAllInputs = () => {
-    if (emailRef.current) {
-      emailRef.current.value = "";
-      const newEmail = { ...email };
-      newEmail.value = "";
-      setEmail({ ...newEmail });
-    }
-    if (passwordRef.current) {
-      passwordRef.current.value = "";
-      const newPassword = { ...password };
-      newPassword.value = "";
-      setPassword({ ...newPassword });
-    }
-    if (nameRef.current) {
-      nameRef.current.value = "";
-      const neWName = { ...name };
-      neWName.value = "";
-      setName({ ...neWName });
-    }
-  };
+  const checkAllInputs = (): boolean =>
+    email.is_complete && password.is_complete && name.is_complete;
 
   const signup = () => {
-    if (!checkComplete()) {
+    if (!email.is_complete) {
+      message.destroy();
+      message.info("올바른 이메일 형식이 아닙니다.");
+      emailRef.current?.select();
+      return;
+    }
+    if (!password.is_complete) {
+      message.destroy();
+      message.info("비밀번호는 최소 4자 이상이어야 합니다.");
+      passwordRef.current?.select();
+      return;
+    }
+    if (!name.is_complete) {
+      message.destroy();
+      message.info("이름(닉네임)은 최소 2자 이상이어야 합니다.");
+      nameRef.current?.select();
       return;
     }
     signUpSagaDispatch({
@@ -114,7 +110,7 @@ const SignupContainer: React.FC = () => {
       name={name}
       nameRef={nameRef}
       signUp={signup}
-      clearAllInputs={clearAllInputs}
+      checkAllInputs={checkAllInputs}
     />
   );
 };

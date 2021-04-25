@@ -1,5 +1,5 @@
 import { UserSignupData } from "./interface";
-import { call, put, takeLatest } from "redux-saga/effects";
+import { call, takeLatest } from "redux-saga/effects";
 import { userApi } from "../../api";
 import { StatusCodes } from "http-status-codes";
 import { message } from "antd";
@@ -8,13 +8,11 @@ function* signupSaga(action: {
   type: string;
   payload: { data: UserSignupData };
 }) {
-  console.log(action.payload);
-  yield put({ type: "signup/setSignupLoading", payload: true });
   message.loading("잠시만 기다려 주세요.");
   try {
     const response = yield call(userApi.signup, action.payload.data);
     message.destroy();
-    yield put({ type: "signup/setSignupLoading", payload: false });
+    console.log(response.status);
     if (response.status === StatusCodes.CREATED) {
       alert("회원 가입이 완료되었습니다.");
       window.location.href = "/";
