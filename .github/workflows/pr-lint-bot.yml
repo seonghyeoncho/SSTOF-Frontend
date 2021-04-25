@@ -27,9 +27,9 @@ jobs:
       - name: Prettier and ESLint Checks Success
         uses: actions/github-script@0.2.0
         with:
-          github-token: ${{ github.token }}
+          github-token: ${{ secrets.GH_ACTION_TOKEN}}
           script: |
-            const ref = "${{github.token}}"
+            const ref = "${{github.ref}}"
             const pr_num = Number(ref.split("/")[2])
             await github.pulls.createReview({
               ...context.repo,
@@ -42,7 +42,7 @@ jobs:
       - name: Prettier and ESLint Checks Fail
         uses: actions/github-script@0.2.0
         with:
-          github-token: ${{ github.token }}
+          github-token: ${{ secrets.GH_ACTION_TOKEN }}
           script: |
             const ref = "${{github.ref}}"
             const pr_num = Number(ref.split("/")[2])
