@@ -21,16 +21,16 @@ const RouterComponent: React.FC = () => (
       <SignUp />
     </Route>
     <Route path="/questions">
-      <Questions/>
+      <Questions />
     </Route>
     <Route path="/questions/ask">
-      <Questions/>
+      <Questions />
     </Route>
     <Route path="/tags">
-      <Tags/>
+      <Tags />
     </Route>
     <Route path="/users">
-      <Users/>
+      <Users />
     </Route>
     <Redirect path="*" to="/" />
   </Switch>
@@ -38,8 +38,8 @@ const RouterComponent: React.FC = () => (
 
 const RouterExporter: React.FC = () => (
   <Router>
-    <Header/>
-    
+    <Header />
+
     <RouterComponent />
   </Router>
 );

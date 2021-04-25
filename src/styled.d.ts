@@ -9,10 +9,8 @@ declare module "styled-components" {
     redColor: string;
     mainColor: string;
     themeColor: string;
-    mobile: string,
-    tablet: string,
-    desktop: string,
-
+    mobile: string;
+    tablet: string;
+    desktop: string;
   }
-  
 }
