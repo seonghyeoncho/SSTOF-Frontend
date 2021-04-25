@@ -1,15 +1,18 @@
 name: PullRequestLintTest
 
-on: pull_request
+on:
+  pull_request_target:
+    types: [labeled]
 
 jobs:
   eslint_prettier:
     name: ESlintAndPrettierCheck
     runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.labels.*.name, 'STAGING')
 
     steps:
       - name: Checkout
-      - uses: actions/checkout@v2
+        uses: actions/checkout@v2
 
       - uses: actions/cache@v2
         with:
@@ -27,13 +30,13 @@ jobs:
       - name: Prettier and ESLint Checks Success
         uses: actions/github-script@0.2.0
         with:
-          github-token: ${{ secrets.GH_ACTION_TOKEN}}
+          github-token: ${{ github.token }}
           script: |
             const ref = "${{github.ref}}"
-            const pr_num = Number(ref.split("/")[2])
+            const pull_number = Number(ref.split("/")[2])
             await github.pulls.createReview({
               ...context.repo,
-              pr_num,
+              pull_number,
               body: "상당히 예쁜 코드네요!",
               event: "APPROVE"
             })
@@ -42,19 +45,19 @@ jobs:
       - name: Prettier and ESLint Checks Fail
         uses: actions/github-script@0.2.0
         with:
-          github-token: ${{ secrets.GH_ACTION_TOKEN }}
+          github-token: ${{ github.token }}
           script: |
             const ref = "${{github.ref}}"
-            const pr_num = Number(ref.split("/")[2])
+            const pull_number = Number(ref.split("/")[2])
             await github.pulls.createReview({
               ...context.repo,
-              pr_num,
+              pull_number,
               body: "이 코드는 이쁘지 않아요.. Prettier와 ESLint fix해주세요~~",
               event: "REQUEST_CHANGES"
             })
             await github.pulls.update({
               ...context.repo,
-              pr_num,
+              pull_number,
               state: "closed"
             })
         if: failure()
