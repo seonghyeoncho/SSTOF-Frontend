@@ -24,8 +24,6 @@ const SignUp = ({
   emailRef,
   password,
   passwordRef,
-  confirmPassword,
-  confirmPasswordRef,
   name,
   nameRef,
   signUp,
@@ -85,16 +83,6 @@ const SignUp = ({
                 password.onChange(event);
               }}
               isValid={password.is_complete}
-            />
-            <InputTitle>비밀 번호 확인</InputTitle>
-            <Input
-              type="password"
-              id="confirmPassword"
-              ref={confirmPasswordRef}
-              onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
-                confirmPassword.onChange(event);
-              }}
-              isValid={confirmPassword.is_complete}
             />
             <InputTitle>이름(닉네임)</InputTitle>
             <Input

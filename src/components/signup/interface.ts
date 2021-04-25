@@ -5,11 +5,10 @@ export interface SignupProps {
   emailRef: React.RefObject<HTMLInputElement>;
   password: SignupInputProps;
   passwordRef: React.RefObject<HTMLInputElement>;
-  confirmPassword: SignupInputProps;
-  confirmPasswordRef: React.RefObject<HTMLInputElement>;
   name: SignupInputProps;
   nameRef: React.RefObject<HTMLInputElement>;
   signUp: () => void;
+  clearAllInputs: () => void;
 }
 
 export interface SignupInputProps {

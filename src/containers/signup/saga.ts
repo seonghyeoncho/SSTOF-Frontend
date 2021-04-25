@@ -4,12 +4,15 @@ import { userApi } from "../../api";
 import { StatusCodes } from "http-status-codes";
 import { message } from "antd";
 
-function* signupSaga(action: { type: string; payload: UserSignupData }) {
+function* signupSaga(action: {
+  type: string;
+  payload: { data: UserSignupData };
+}) {
   console.log(action.payload);
   yield put({ type: "signup/setSignupLoading", payload: true });
   message.loading("잠시만 기다려 주세요.");
   try {
-    const response = yield call(userApi.signup, action.payload);
+    const response = yield call(userApi.signup, action.payload.data);
     message.destroy();
     yield put({ type: "signup/setSignupLoading", payload: false });
     if (response.status === StatusCodes.CREATED) {
