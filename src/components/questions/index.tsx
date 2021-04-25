@@ -1,9 +1,8 @@
-import React from 'react';
-import SideNavBar from '../common/sidebar';
-import { Container, QuestionsContainer, SideNavBarContianer, Title, Wrapper } from './styles';
+import React from "react";
+import SideNavBar from "../common/sidebar";
+import { Container, QuestionsContainer, SideNavBarContianer, Title, Wrapper } from "./styles";
 
-const Questions: React.FC = () => {
-    return (
+const Questions: React.FC = () => (
         <Container>
             <Wrapper>
                 <SideNavBarContianer>
@@ -19,6 +18,5 @@ const Questions: React.FC = () => {
             </Wrapper>
         </Container>
     );
-};
 
 export default Questions;

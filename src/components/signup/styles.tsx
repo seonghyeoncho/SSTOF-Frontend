@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 export const Container = styled.div`
   height: 100vh;
@@ -78,7 +78,7 @@ export const InputTitle = styled.div`
   align-self: flex-start;
 `;
 
-export const SignUpButton = styled.button`
+export const SignUpButton = styled.div<{ isValid: boolean }>`
   width: 300px;
   color: white;
   text-align: center;
@@ -86,18 +86,11 @@ export const SignUpButton = styled.button`
   border-radius: 15px;
   line-height: 1.7;
   font-weight: bold;
+  opacity: ${(props) => (props.isValid ? 1 : 0.5)};
   background-color: ${(props) => props.theme.blueColor};
   &:hover {
-    cursor: pointer;
+    cursor: ${(props) => (props.isValid ? "pointer" : "default")};
   }
-`;
-
-export const SmallText = styled.div`
-  font-size: 9px;
-  margin-left: 40px;
-  color: white;
-  margin-top: 9px;
-  align-self: flex-start;
 `;
 
 export const SignupWithGithubButton = styled.a`

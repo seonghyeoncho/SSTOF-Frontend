@@ -1,5 +1,5 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
 import {
 
     Container,
@@ -15,11 +15,9 @@ import {
     MyQuestionsLinkButton,
     InputImage,
     
-} from './styles';
+} from "./styles";
 
-const Header: React.FC = () => {
-
-    return(
+const Header: React.FC = () => (
         <Container>
                 <div/>
             <Wrapper>
@@ -56,7 +54,5 @@ const Header: React.FC = () => {
             </Wrapper>
         </Container>
     );
-
-};
 
 export default Header;
