@@ -2,7 +2,10 @@ name: PullRequestLintTest
 
 on:
   pull_request_target:
-    types: [labeled]
+    branches:
+      - dev
+    types:
+      - labeled
 
 jobs:
   eslint_prettier:
@@ -13,6 +16,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
 
       - uses: actions/cache@v2
         with:
