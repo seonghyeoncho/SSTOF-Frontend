@@ -24,6 +24,17 @@ export const LoginContainer = styled.div`
   overflow: hidden;
 `;
 
+export const InformationContainer = styled.form`
+  display: flex;
+  box-pack: center;
+  justify-content: center;
+  box-align: center;
+  align-items: center;
+  box-orient: vertical;
+  box-direction: normal;
+  flex-direction: column;
+`;
+
 export const MainText = styled.div`
   color: white;
   font-size: 20px;
