@@ -14,8 +14,16 @@ import {
   ButtonText,
 } from "./styles";
 import GITHUB from "../../assets/GITHUB.png";
+import { LoginProps } from "./interface";
 
-const Login = (): JSX.Element => (
+const Login = ({
+  email,
+  emailRef,
+  password,
+  passwordRef,
+  login,
+  checkAllInputs,
+}: LoginProps): JSX.Element => (
   <Container>
     <Wrapper>
       <LoginContainer>
@@ -27,11 +35,30 @@ const Login = (): JSX.Element => (
             type="email"
             id="email"
             placeholder="example@example.com"
-            isValid={true}
+            ref={emailRef}
+            isValid={email.is_complete}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+              email.onChange(event);
+            }}
           />
           <InputTitle>비밀번호</InputTitle>
-          <Input type="password" id="password" isValid={true} />
-          <LoginButton isValid={true}>로그인</LoginButton>
+          <Input
+            type="password"
+            id="password"
+            ref={passwordRef}
+            isValid={password.is_complete}
+            onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
+              password.onChange(event);
+            }}
+          />
+          <LoginButton
+            isValid={checkAllInputs()}
+            onClick={() => {
+              checkAllInputs() ? login() : "";
+            }}
+          >
+            로그인
+          </LoginButton>
           <ContinueWithGithubButton
             href={`${process.env.REACT_APP_GITHUB_OAUTH_ADDRESS}`}
           >
