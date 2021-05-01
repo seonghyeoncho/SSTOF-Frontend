@@ -1,9 +1,11 @@
+import { AxiosResponse } from "axios";
+
 export interface UserLoginData {
   email: string;
   password: string;
 }
 
-export interface UserLoginResponse {
+export interface UserLoginResponse extends AxiosResponse {
   userId: number;
   name: string;
   email: string;
