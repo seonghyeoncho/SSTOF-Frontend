@@ -1,8 +1,9 @@
 import { message } from "antd";
+import { AxiosResponse } from "axios";
 import { StatusCodes } from "http-status-codes";
 import { call, takeLatest } from "redux-saga/effects";
 import { userApi } from "../../api";
-import { UserLoginData } from "./interface";
+import { UserLoginData, UserLoginResponse } from "./interface";
 
 function* loginSaga(action: {
   type: string;
@@ -10,9 +11,15 @@ function* loginSaga(action: {
 }) {
   message.loading("잠시만 기다려 주세요.");
   try {
-    const response = yield call(userApi.login, action.payload.data);
+    const response: AxiosResponse<UserLoginResponse> = yield call(
+      userApi.login,
+      action.payload.data,
+    );
     message.destroy();
     if (response.status === StatusCodes.OK) {
+      console.log(response.data);
+      localStorage.setItem("accessToken", response.data.accessToken);
+      localStorage.setItem("refreshToken", response.data.refreshToken);
       window.location.href = "/";
     }
   } catch (e) {

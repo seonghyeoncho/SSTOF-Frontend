@@ -1,26 +1,25 @@
 import React, { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
-import { SignupInputProps } from "../../components/signup/interface";
-import { UserSignupData } from "./interface";
+import { UserLoginData } from "./interface";
+import { LoginInputProps } from "../../components/login/interface";
 import sha256 from "crypto";
-import Signup from "../../components/signup/index";
 import { message } from "antd";
+import Login from "../../components/login";
 
-const SignupContainer: React.FC = () => {
+const LoginContainer: React.FC = () => {
   const emailRef = useRef<HTMLInputElement>(null);
   const passwordRef = useRef<HTMLInputElement>(null);
-  const nameRef = useRef<HTMLInputElement>(null);
 
   const dispatch = useDispatch();
 
-  const signUpSagaDispatch = (data: UserSignupData) => {
+  const loginSagaDispatch = (data: UserLoginData) => {
     const { password } = data;
     const hashedPassword = sha256
       .createHash("sha256")
       .update(password)
       .digest("hex");
     data.password = hashedPassword;
-    dispatch({ type: "signup/signupSaga", payload: { data } });
+    dispatch({ type: "login/loginSaga", payload: { data } });
   };
 
   const onEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -44,38 +43,22 @@ const SignupContainer: React.FC = () => {
     setPassword({ ...newPassword });
   };
 
-  const onNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newName = { ...name };
-    const value = e.currentTarget.value;
-    newName.value = value;
-    if (newName.value !== " " && newName.value.length >= 2) {
-      newName.is_complete = true;
-    }
-    setName({ ...newName });
-  };
-
-  const [email, setEmail] = useState<SignupInputProps>({
+  const [email, setEmail] = useState<LoginInputProps>({
     value: "",
     onChange: onEmailChange,
     is_complete: false,
   });
 
-  const [password, setPassword] = useState<SignupInputProps>({
+  const [password, setPassword] = useState<LoginInputProps>({
     value: "",
     onChange: onPasswordChange,
     is_complete: false,
   });
 
-  const [name, setName] = useState<SignupInputProps>({
-    value: "",
-    onChange: onNameChange,
-    is_complete: false,
-  });
-
   const checkAllInputs = (): boolean =>
-    email.is_complete && password.is_complete && name.is_complete;
+    email.is_complete && password.is_complete;
 
-  const signup = () => {
+  const login = () => {
     if (!email.is_complete) {
       message.destroy();
       message.info("올바른 이메일 형식이 아닙니다.");
@@ -84,35 +67,26 @@ const SignupContainer: React.FC = () => {
     }
     if (!password.is_complete) {
       message.destroy();
-      message.info("비밀번호는 최소 4자 이상이어야 합니다.");
+      message.info("비밀번호는 최소 4자 이상입니다.");
       passwordRef.current?.select();
       return;
     }
-    if (!name.is_complete) {
-      message.destroy();
-      message.info("이름(닉네임)은 최소 2자 이상이어야 합니다.");
-      nameRef.current?.select();
-      return;
-    }
-    signUpSagaDispatch({
+    loginSagaDispatch({
       email: email.value,
       password: password.value,
-      name: name.value,
     });
   };
 
   return (
-    <Signup
+    <Login
       email={email}
       emailRef={emailRef}
       password={password}
       passwordRef={passwordRef}
-      name={name}
-      nameRef={nameRef}
-      signUp={signup}
+      login={login}
       checkAllInputs={checkAllInputs}
     />
   );
 };
 
-export default SignupContainer;
+export default LoginContainer;
