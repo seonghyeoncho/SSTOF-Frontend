@@ -5,14 +5,16 @@ import {
   signupPageSaga as signupSaga,
   signup_reducer,
 } from "./containers/signup";
+import { loginPageSaga as loginSaga, login_reducer } from "./containers/login";
 import { configureStore } from "@reduxjs/toolkit";
 
 const RootReducer = combineReducers({
   signup: signup_reducer,
+  login: login_reducer,
 });
 
 function* rootSaga() {
-  yield all([signupSaga()]);
+  yield all([signupSaga(), loginSaga()]);
 }
 
 const sagaMiddleware = createSagaMiddleware();
