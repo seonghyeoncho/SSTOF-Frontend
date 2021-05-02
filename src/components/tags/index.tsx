@@ -1,8 +1,6 @@
 import React from "react";
-import SideNavBar from "../common/sidebar";
 import {
   Container,
-  SideNavBarContianer,
   TagsContainer,
   Title,
   Wrapper,
@@ -11,9 +9,6 @@ import {
 const Tags: React.FC = () => (
   <Container>
     <Wrapper>
-      <SideNavBarContianer>
-        <SideNavBar></SideNavBar>
-      </SideNavBarContianer>
       <TagsContainer>
         <Title>Tags</Title>
       </TagsContainer>

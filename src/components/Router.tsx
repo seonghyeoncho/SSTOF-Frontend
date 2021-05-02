@@ -57,14 +57,11 @@ const RouterExporter: React.FC = () => (
   <Router>
     <AppContainer>
       <Header/>
-
       <MainContainer>
         <SideNavBar/>
         <RouterComponent />
       </MainContainer>
-
       <FooterContainer>
-
       </FooterContainer>
     </AppContainer>
   </Router>
