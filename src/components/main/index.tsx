@@ -1,10 +1,18 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router";
-import { Container, MainContainer, MainContent, MainContentTitle, MainfillterButtons, Wrapper } from "./styles";
+import SideNavBar from "../common/sidebar";
+import {
+  Container,
+  MainContainer,
+  MainContent,
+  MainContentTitle,
+  MainfillterButtons,
+  SideNavBarContianer,
+  Wrapper,
+} from "./styles";
 
 const Main: React.FC = () => {
-
-    const location = useLocation();
+  const location = useLocation();
   useEffect(() => {
     const query = new URLSearchParams(location.search);
     const accessToken = query.get("accessToken");
@@ -16,26 +24,22 @@ const Main: React.FC = () => {
     }
   }, [location]);
   return (
-  <Container>
-    <Wrapper>
-      
-      <MainContainer>
+    <Container>
+      <Wrapper>
+        <SideNavBarContianer>
+          <SideNavBar></SideNavBar>
+        </SideNavBarContianer>
 
-        <MainContentTitle>
-          Top Questions
-        </MainContentTitle>
-          
-        <MainfillterButtons>
-          filler buttons
-        </MainfillterButtons>
+        <MainContainer>
+          <MainContentTitle>Top Questions</MainContentTitle>
 
-        <MainContent>
-        </MainContent>
+          <MainfillterButtons>filler buttons</MainfillterButtons>
 
-      </MainContainer>
-    </Wrapper>
-  </Container>
-      ); 
+          <MainContent></MainContent>
+        </MainContainer>
+      </Wrapper>
+    </Container>
+  );
 };
 
 export default Main;

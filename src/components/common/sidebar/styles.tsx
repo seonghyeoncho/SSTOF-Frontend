@@ -3,22 +3,22 @@ import theme from "../../../theme";
 
 export const Container = styled.div`
 
-    width: 159px;
-    background-color: #4e4e4e;
-    border-radius: 10px;
+  width: 159px;
+  background-color: #4e4e4e;
+  border-radius: 10px;
 
-    a{
-        color: white;
-        margin-bottom: 12px;
-        :hover{
-            color: ${theme.themeColor};
-        }
-    }
-    padding: 10px;
+  a{
+      color: white;
+      margin-bottom: 12px;
+      :hover{
+          color: ${theme.themeColor};
+      }
+  }
+  padding: 10px;
 
-    @media ${props => props.theme.mobile} {
-        display: none;
-    }
+  @media ${props => props.theme.mobile} {
+      display: none;
+  }
 `;
 export const Wrapper = styled.div`
     color:white;
