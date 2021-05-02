@@ -1,15 +1,9 @@
 import React from "react";
-import SideNavBar from "../common/sidebar";
-import { Container, SideNavBarContianer, Title, UsersContainer, Wrapper } from "./styles";
+import { Container, Title, UsersContainer, Wrapper } from "./styles";
 
 const Users:React.FC = () => (
         <Container>
             <Wrapper>
-                <SideNavBarContianer>
-                    <SideNavBar>
-
-                    </SideNavBar>
-                </SideNavBarContianer>
                 <UsersContainer>
                     <Title>
                         Users

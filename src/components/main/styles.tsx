@@ -4,9 +4,9 @@ export const Container = styled.div`
 
     @media ${props => props.theme.desktop} {
 
-        width: 100%;
+        /* width: 100%;
         display: flex;
-        justify-content: center;
+        justify-content: center; */
         
     }
 

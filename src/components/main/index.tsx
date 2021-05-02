@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
-import SideNavBar from "../common/sidebar";
 import { useLocation } from "react-router";
-import { Container, MainContainer, MainContent, MainContentTitle, MainfillterButtons, SideNavBarContianer, Wrapper } from "./styles";
+import { Container, MainContainer, MainContent, MainContentTitle, MainfillterButtons, Wrapper } from "./styles";
 
 const Main: React.FC = () => {
 
@@ -19,12 +18,6 @@ const Main: React.FC = () => {
   return (
   <Container>
     <Wrapper>
-
-      <SideNavBarContianer>
-        <SideNavBar>
-
-        </SideNavBar>
-      </SideNavBarContianer>
       
       <MainContainer>
 

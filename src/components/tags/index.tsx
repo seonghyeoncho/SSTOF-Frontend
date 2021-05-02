@@ -1,15 +1,9 @@
 import React from "react";
-import SideNavBar from "../common/sidebar";
-import { Container, SideNavBarContianer, TagsContainer, Title, Wrapper } from "./styles";
+import { Container, TagsContainer, Title, Wrapper } from "./styles";
  
 const Tags: React.FC = () => (
         <Container>
             <Wrapper>
-                <SideNavBarContianer>
-                    <SideNavBar>
-
-                    </SideNavBar>
-                </SideNavBarContianer>
                 <TagsContainer>
                     <Title>
                         Tags

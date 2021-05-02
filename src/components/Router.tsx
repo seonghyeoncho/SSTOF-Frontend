@@ -5,12 +5,29 @@ import {
   Route,
   Switch,
 } from "react-router-dom";
+import styled from "styled-components";
 import SignUp from "../routes/signup";
 import Header from "./common/header";
+import SideNavBar from "./common/sidebar";
 import Main from "./main";
 import Questions from "./questions";
 import Tags from "./tags";
 import Users from "./users";
+
+const AppContainer = styled.div`
+  width: 100%;
+`;
+const MainContainer = styled.div`
+  max-width: 1280px;
+  
+  margin: auto;
+  margin-top: 74px;
+  display: grid;
+  grid-template-columns: 1 1fr;
+
+`;
+const FooterContainer = styled.div`
+`;
 
 const RouterComponent: React.FC = () => (
   <Switch>
@@ -38,9 +55,18 @@ const RouterComponent: React.FC = () => (
 
 const RouterExporter: React.FC = () => (
   <Router>
-    <Header/>
-    
-    <RouterComponent />
+    <AppContainer>
+      <Header/>
+
+      <MainContainer>
+        <SideNavBar/>
+        <RouterComponent />
+      </MainContainer>
+
+      <FooterContainer>
+
+      </FooterContainer>
+    </AppContainer>
   </Router>
 );
 
