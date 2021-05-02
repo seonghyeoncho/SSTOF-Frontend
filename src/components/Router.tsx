@@ -6,6 +6,7 @@ import {
   Switch,
 } from "react-router-dom";
 import SignUp from "../routes/signup";
+import Login from "../routes/login";
 import Header from "./common/header";
 import Main from "./main";
 import Questions from "./questions";
@@ -19,6 +20,9 @@ const RouterComponent: React.FC = () => (
     </Route>
     <Route path="/signup">
       <SignUp />
+    </Route>
+    <Route path="/login">
+      <Login />
     </Route>
     <Route path="/questions">
       <Questions />
