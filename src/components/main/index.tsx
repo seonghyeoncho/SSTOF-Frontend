@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router";
+import SideNavBar from "../common/sidebar";
 import {
   Container,
   MainContainer,
   MainContent,
   MainContentTitle,
   MainfillterButtons,
+  SideNavBarContianer,
   Wrapper,
 } from "./styles";
 
@@ -24,6 +26,9 @@ const Main: React.FC = () => {
   return (
     <Container>
       <Wrapper>
+        <SideNavBarContianer>
+          <SideNavBar/>
+        </SideNavBarContianer>
         <MainContainer>
           <MainContentTitle>Top Questions</MainContentTitle>
 

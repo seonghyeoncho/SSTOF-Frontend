@@ -3,6 +3,7 @@ import theme from "../../../theme";
 
 export const Container = styled.div`
 
+  position: fixed;
   width: 159px;
   background-color: #4e4e4e;
   border-radius: 10px;

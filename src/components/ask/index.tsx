@@ -1,9 +1,26 @@
 import React from "react";
-import { Container } from "./styles";
+import { 
+  AskContainer,
+  Container,
+  PageTitle,
+  PageTitleContainer,
+  SideHelpBar,
+  Wrapper,
+} from "./styles";
 
 const AskQuestion: React.FC = () => (
   <Container>
-    <div>ask page</div>
+    <Wrapper>
+      <PageTitleContainer>
+        <PageTitle>Ask Question!</PageTitle>
+      </PageTitleContainer>
+      <AskContainer>
+      </AskContainer>
+      <SideHelpBar>
+        
+      </SideHelpBar>
+
+    </Wrapper>
   </Container>
 );
 

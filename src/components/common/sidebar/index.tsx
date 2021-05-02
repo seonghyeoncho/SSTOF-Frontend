@@ -15,7 +15,6 @@ const SideNavBar: React.FC = () => (
       <HomeLinkTitle>
         <Link to="/">Home</Link>
       </HomeLinkTitle>
-
       <PublicLinkContainer>
         <PublicLinkTitle>PUBLIC</PublicLinkTitle>
         <PublicLinks>
@@ -27,5 +26,6 @@ const SideNavBar: React.FC = () => (
     </Wrapper>
   </Container>
 );
+
 
 export default SideNavBar;

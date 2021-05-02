@@ -3,13 +3,10 @@ import styled from "styled-components";
 export const Container = styled.div`
   @media ${(props) => props.theme.desktop} {
     width: 100%;
-    display: flex;
-    justify-content: center;
   }
 `;
 
 export const Wrapper = styled.div`
-  margin-top: 79px;
 
   @media ${(props) => props.theme.desktop} {
     width: 100%;
@@ -17,6 +14,11 @@ export const Wrapper = styled.div`
 
     display: flex;
     justify-content: space-between;
+  }
+`;
+export const SideNavBarContianer = styled.div`
+  @media ${(props) => props.theme.mobile} {
+    display: none;
   }
 `;
 export const QuestionsContainer = styled.div`
@@ -30,6 +32,7 @@ export const QuestionsContainer = styled.div`
   background-color: #4e4e4e;
   color: white;
 
+  margin-left: 183px;
   @media ${(props) => props.theme.mobile} {
     background-color: transparent;
   }
@@ -37,6 +40,11 @@ export const QuestionsContainer = styled.div`
 export const Title = styled.div`
   font-size: 27px;
   font-weight: bold;
-
   margin-bottom: 24px;
+`;
+export const AskButtonContainer = styled.div`
+  color: black;
+`;
+export const AskButton = styled.button`
+  border: none;
 `;

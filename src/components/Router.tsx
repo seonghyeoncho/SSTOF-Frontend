@@ -7,8 +7,8 @@ import {
 } from "react-router-dom";
 import styled from "styled-components";
 import SignUp from "../routes/signup";
+import AskQuestion from "./ask";
 import Header from "./common/header";
-import SideNavBar from "./common/sidebar";
 import Main from "./main";
 import Questions from "./questions";
 import Tags from "./tags";
@@ -19,12 +19,10 @@ const AppContainer = styled.div`
 `;
 const MainContainer = styled.div`
   max-width: 1280px;
-  
+  width: 100%;
   margin: auto;
   margin-top: 74px;
-  display: grid;
-  grid-template-columns: 1 1fr;
-
+  display: flex;
 `;
 const FooterContainer = styled.div`
 `;
@@ -38,10 +36,10 @@ const RouterComponent: React.FC = () => (
       <SignUp />
     </Route>
     <Route path="/questions">
-      <Questions />
+      <Questions/>
     </Route>
-    <Route path="/questions/ask">
-      <Questions />
+    <Route path="/ask">
+      <AskQuestion/>
     </Route>
     <Route path="/tags">
       <Tags />
@@ -58,7 +56,6 @@ const RouterExporter: React.FC = () => (
     <AppContainer>
       <Header/>
       <MainContainer>
-        <SideNavBar/>
         <RouterComponent />
       </MainContainer>
       <FooterContainer>
