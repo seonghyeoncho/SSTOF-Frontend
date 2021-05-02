@@ -10,7 +10,7 @@ const theme = {
   onFocusBackgroundColor: "#18232F",
   greenColor: "#0ba325",
   redColor: "#e63c1e",
-  mainColor: "#909090",
+  mainColor: "#4e4e4e",
   themeColor: "#1B7EBC",
   mobile: `(max-width: ${size.mobile})`,
   tablet: `(max-width: ${size.tablet})`,
