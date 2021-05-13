@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, RouteComponentProps } from 'react-router-dom';
 import SideNavBar from '../common/sidebar';
 import { AskButton,
     AskButtonContainer,
@@ -10,7 +10,13 @@ import { AskButton,
     Wrapper 
 } from './styles';
 
-const Questions: React.FC = () => {
+
+
+const Questions: React.FC<RouteComponentProps> = ({history}: RouteComponentProps) => {
+
+    const pushToAsk = () => {
+        history.push("/ask");
+    }
     return (
         <Container>
             <Wrapper>
@@ -24,10 +30,8 @@ const Questions: React.FC = () => {
                         Questions
                     </Title>
                     <AskButtonContainer>
-                        <AskButton>
-                            <Link to="/ask">
-                                Ask Question!
-                            </Link>
+                        <AskButton onClick={pushToAsk}>
+                            Ask Question!
                         </AskButton>
                     </AskButtonContainer>
                 </QuestionsContainer>

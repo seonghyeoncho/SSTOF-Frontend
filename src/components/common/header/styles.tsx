@@ -37,7 +37,7 @@ export const Wrapper = styled.div`
 
     
     @media ${props => props.theme.desktop} {
-        max-width: 1280px;
+        max-width: 1440px;
         height: 100%;
 
         display: flex;

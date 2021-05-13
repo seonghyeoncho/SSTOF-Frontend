@@ -17,7 +17,7 @@ export const Wrapper = styled.div`
     @media ${props => props.theme.desktop} {
 
         width: 100%;
-        max-width: 1280px;
+        max-width: 1440px;
 
         display: flex;
         justify-content: space-between;
@@ -73,9 +73,8 @@ export const AskButton = styled.button`
 
     border-radius: 5px;
 
-    background-color: ${theme.mainColor}
+    background-color: white;
 
-    a{
-        color: white;
-    }
+    font-size: 20px;
+    
 `;

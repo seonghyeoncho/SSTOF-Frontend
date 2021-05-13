@@ -18,7 +18,7 @@ export const Wrapper = styled.div`
     @media ${props => props.theme.desktop} {
 
         width: 100%;
-        max-width: 1280px;
+        max-width: 1440px;
 
         display: flex;
         justify-content: space-between;

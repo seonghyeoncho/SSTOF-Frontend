@@ -21,9 +21,10 @@ const RouterComponent: React.FC = () => (
     <Route path="/signup">
       <SignUp />
     </Route>
-    <Route path="/questions">
-      <Questions/>
-    </Route>
+    <Route 
+      path="/questions"
+      component={Questions}
+    />
     <Route path="/ask">
       <AskQuestion/>
     </Route>
