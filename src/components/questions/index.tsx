@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router-dom';
 import SideNavBar from '../common/sidebar';
 import { AskButton,
     AskButtonContainer,
@@ -38,5 +38,5 @@ const Questions: React.FC<RouteComponentProps> = ({history}: RouteComponentProps
             </Wrapper>
         </Container>
     );
-
+}
 export default Questions;

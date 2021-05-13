@@ -131,5 +131,5 @@ const AskQuestion: React.FC = () => {
             </Wrapper>
         </Container>
     );
-
+}
 export default AskQuestion;
