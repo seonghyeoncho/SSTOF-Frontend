@@ -12,7 +12,6 @@ function* signupSaga(action: {
   try {
     const response = yield call(userApi.signup, action.payload.data);
     message.destroy();
-    console.log(response.status);
     if (response.status === StatusCodes.CREATED) {
       alert("회원 가입이 완료되었습니다.");
       window.location.href = "/";

@@ -6610,7 +6610,11 @@ is-buffer@^2.0.0:
   resolved "https://registry.yarnpkg.com/is-buffer/-/is-buffer-2.0.5.tgz#ebc252e400d22ff8d77fa09888821a24a658c191"
   integrity sha512-i2R6zNFDwgEHJyQUtJEk0XFi1i0dPFn/oqjK3/vPCcDeJvW5NQ83V8QbicfF1SupOaB0h8ntgBC2YiE7dfyctQ==
 
+<<<<<<< HEAD
 is-callable@^1.1.4, is-callable@^1.2.2, is-callable@^1.2.3:
+=======
+is-callable@^1.1.4, is-callable@^1.2.2:
+>>>>>>> 30c0fa7964bc380513e043ba8d66f395ed2efee2
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/is-callable/-/is-callable-1.2.3.tgz#8b1e0500b73a1d76c70487636f368e519de8db8e"
   integrity sha512-J1DcMe8UYTBSrKezuIUTUwjXsho29693unXM2YhJUTR2txK/eG47bvNa/wipPFmZFgr/N6f1GA66dv0mEyTIyQ==
@@ -10454,6 +10458,7 @@ react-markdown@^6.0.0:
     unified "^9.0.0"
     unist-util-visit "^2.0.0"
 
+<<<<<<< HEAD
 react-redux@^7.2.3:
   version "7.2.4"
   resolved "https://registry.yarnpkg.com/react-redux/-/react-redux-7.2.4.tgz#1ebb474032b72d806de2e0519cd07761e222e225"
@@ -10466,6 +10471,8 @@ react-redux@^7.2.3:
     prop-types "^15.7.2"
     react-is "^16.13.1"
 
+=======
+>>>>>>> 30c0fa7964bc380513e043ba8d66f395ed2efee2
 react-refresh@^0.8.3:
   version "0.8.3"
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.8.3.tgz#721d4657672d400c5e3c75d063c4a85fb2d5d68f"
@@ -10582,6 +10589,7 @@ react-syntax-highlighter@^15.4.3:
     prismjs "^1.22.0"
     refractor "^3.2.0"
 
+<<<<<<< HEAD
 react-textarea-autosize@^8.3.2:
   version "8.3.2"
   resolved "https://registry.yarnpkg.com/react-textarea-autosize/-/react-textarea-autosize-8.3.2.tgz#4f9374d357b0a6f6469956726722549124a1b2db"
@@ -10591,6 +10599,8 @@ react-textarea-autosize@^8.3.2:
     use-composed-ref "^1.0.0"
     use-latest "^1.0.0"
 
+=======
+>>>>>>> 30c0fa7964bc380513e043ba8d66f395ed2efee2
 react@^17.0.1:
   version "17.0.1"
   resolved "https://registry.yarnpkg.com/react/-/react-17.0.1.tgz#6e0600416bd57574e3f86d92edba3d9008726127"

@@ -1,61 +1,47 @@
 import styled from "styled-components";
 
 export const Container = styled.div`
-    @media ${props => props.theme.desktop} {
-
-        width: 100%;
-        display: flex;
-        justify-content: center;
-
-    }
+  @media ${(props) => props.theme.desktop} {
+    width: 100%;
+  }
 `;
 
 export const Wrapper = styled.div`
-    margin-top: 79px;
 
-    @media ${props => props.theme.desktop} {
+  @media ${props => props.theme.desktop} {
 
-        width: 100%;
-        max-width: 1440px;
+    width: 100%;
+    max-width: 1440px;
 
-        display: flex;
-        justify-content: space-between;
-    }
+    display: flex;
+    justify-content: space-between;
+  }
 `;
 export const SideNavBarContianer = styled.div`
-    
-    width: 154px;
-
-    border-radius: 10px;
-
-    background-color: #4E4E4E;
-
-    margin-right: 24px;
-    
-    @media ${props => props.theme.mobile} {
-        display: none;
-    }
-
+  @media ${(props) => props.theme.mobile} {
+    display: none;
+  }
 `;
 export const UsersContainer = styled.div`
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 
-    border-radius: 10px;
+  border-radius: 10px;
 
-    padding: 24px;
+  padding: 24px;
 
-    background-color: #4E4E4E;
-    color: white;
+  background-color: #4e4e4e;
+  color: white;
 
-    @media ${props => props.theme.mobile} {
-        background-color: transparent;
-    }
+  margin-left: 183px;
+  @media ${(props) => props.theme.mobile} {
+    background-color: transparent;
+  }
 `;
 
 export const Title = styled.div`
-    font-size: 27px;
-    font-weight: bold;
+  font-size: 27px;
+  font-weight: bold;
 
-    margin-bottom: 24px;
+  margin-bottom: 24px;
 `;

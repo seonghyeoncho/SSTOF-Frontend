@@ -5,13 +5,28 @@ import {
   Route,
   Switch,
 } from "react-router-dom";
+import styled from "styled-components";
 import SignUp from "../routes/signup";
 import AskQuestion from "./ask";
+import Login from "../routes/login";
 import Header from "./common/header";
 import Main from "./main";
 import Questions from "./questions";
 import Tags from "./tags";
 import Users from "./users";
+
+const AppContainer = styled.div`
+  width: 100%;
+`;
+const MainContainer = styled.div`
+  max-width: 1280px;
+  width: 100%;
+  margin: auto;
+  margin-top: 74px;
+  display: flex;
+`;
+const FooterContainer = styled.div`
+`;
 
 const RouterComponent: React.FC = () => (
   <Switch>
@@ -29,10 +44,10 @@ const RouterComponent: React.FC = () => (
       <AskQuestion/>
     </Route>
     <Route path="/tags">
-      <Tags/>
+      <Tags />
     </Route>
     <Route path="/users">
-      <Users/>
+      <Users />
     </Route>
     <Redirect path="*" to="/" />
   </Switch>
@@ -40,9 +55,14 @@ const RouterComponent: React.FC = () => (
 
 const RouterExporter: React.FC = () => (
   <Router>
-    <Header/>
-    
-    <RouterComponent />
+    <AppContainer>
+      <Header/>
+      <MainContainer>
+        <RouterComponent />
+      </MainContainer>
+      <FooterContainer>
+      </FooterContainer>
+    </AppContainer>
   </Router>
 );
 

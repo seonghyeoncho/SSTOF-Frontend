@@ -1,0 +1,67 @@
+name: PullRequestLintTest
+
+on:
+  pull_request_target:
+    branches:
+      - dev
+    types:
+      - labeled
+
+jobs:
+  eslint_prettier:
+    name: ESlintAndPrettierCheck
+    runs-on: ubuntu-latest
+    if: contains(github.event.pull_request.labels.*.name, 'STAGING')
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          repository: ${{ github.event.pull_request.head.repo.full_name }}
+
+      - uses: actions/cache@v2
+        with:
+          path: "**/node_modules"
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+
+      - name: Install Packages
+        run: yarn install
+
+      - name: Prettier and ESLint
+        run: |
+          yarn prettier && \
+          yarn lint
+
+      - name: Prettier and ESLint Checks Success
+        uses: actions/github-script@0.2.0
+        with:
+          github-token: ${{ github.token }}
+          script: |
+            const pull_number = "${{github.event.number}}"
+            await github.pulls.createReview({
+              ...context.repo,
+              pull_number,
+              body: "상당히 예쁜 코드네요!",
+              event: "APPROVE"
+            })
+        if: success()
+
+      - name: Prettier and ESLint Checks Fail
+        uses: actions/github-script@0.2.0
+        with:
+          github-token: ${{ github.token }}
+          script: |
+            const pull_number = "${{github.event.number}}"
+            await github.pulls.createReview({
+              ...context.repo,
+              pull_number,
+              body: "이 코드는 이쁘지 않아요.. Prettier와 ESLint fix해주세요~~",
+              event: "REQUEST_CHANGES"
+            })
+            await github.pulls.update({
+              ...context.repo,
+              pull_number,
+              state: "closed"
+            })
+        if: failure()

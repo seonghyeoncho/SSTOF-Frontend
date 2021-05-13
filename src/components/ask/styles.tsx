@@ -10,7 +10,6 @@ export const Container = styled.div`
         justify-content: center;
     }
 `;
-
 export const Wrapper = styled.div`
 
     @media ${props => props.theme.desktop} {
