@@ -1,9 +1,8 @@
-import React from 'react';
-import SideNavBar from '../common/sidebar';
-import { Container, SideNavBarContianer, Title, UsersContainer, Wrapper } from './styles';
+import React from "react";
+import SideNavBar from "../common/sidebar";
+import { Container, SideNavBarContianer, Title, UsersContainer, Wrapper } from "./styles";
 
-const Users:React.FC = () => {
-    return (
+const Users:React.FC = () => (
         <Container>
             <Wrapper>
                 <SideNavBarContianer>
@@ -19,6 +18,5 @@ const Users:React.FC = () => {
             </Wrapper>
         </Container>
     );
-};
 
 export default Users;

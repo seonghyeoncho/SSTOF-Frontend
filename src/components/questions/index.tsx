@@ -38,6 +38,5 @@ const Questions: React.FC<RouteComponentProps> = ({history}: RouteComponentProps
             </Wrapper>
         </Container>
     );
-};
 
 export default Questions;

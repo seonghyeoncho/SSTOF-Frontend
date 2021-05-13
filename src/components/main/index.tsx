@@ -42,7 +42,7 @@ const Main: React.FC = () => {
       </MainContainer>
     </Wrapper>
   </Container>
-      ) 
-}
+      ); 
+};
 
 export default Main;

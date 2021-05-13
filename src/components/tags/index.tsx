@@ -1,9 +1,8 @@
-import React from 'react';
-import SideNavBar from '../common/sidebar';
-import { Container, SideNavBarContianer, TagsContainer, Title, Wrapper } from './styles';
+import React from "react";
+import SideNavBar from "../common/sidebar";
+import { Container, SideNavBarContianer, TagsContainer, Title, Wrapper } from "./styles";
  
-const Tags: React.FC = () => {
-    return (
+const Tags: React.FC = () => (
         <Container>
             <Wrapper>
                 <SideNavBarContianer>
@@ -19,6 +18,5 @@ const Tags: React.FC = () => {
             </Wrapper>
         </Container>
     );
-};
 
 export default Tags;
