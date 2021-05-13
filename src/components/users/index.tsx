@@ -12,7 +12,7 @@ const Users: React.FC = () => (
   <Container>
     <Wrapper>
       <SideNavBarContianer>
-        <SideNavBar/>
+        <SideNavBar />
       </SideNavBarContianer>
       <UsersContainer>
         <Title>Users</Title>

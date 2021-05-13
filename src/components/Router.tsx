@@ -19,14 +19,13 @@ const AppContainer = styled.div`
   width: 100%;
 `;
 const MainContainer = styled.div`
-  max-width: 1280px;
+  max-width: 1440px;
   width: 100%;
   margin: auto;
   margin-top: 74px;
   display: flex;
 `;
-const FooterContainer = styled.div`
-`;
+const FooterContainer = styled.div``;
 
 const RouterComponent: React.FC = () => (
   <Switch>
@@ -36,12 +35,9 @@ const RouterComponent: React.FC = () => (
     <Route path="/signup">
       <SignUp />
     </Route>
-    <Route 
-      path="/questions"
-      component={Questions}
-    />
+    <Route path="/questions" component={Questions} />
     <Route path="/ask">
-      <AskQuestion/>
+      <AskQuestion />
     </Route>
     <Route path="/tags">
       <Tags />
@@ -56,12 +52,11 @@ const RouterComponent: React.FC = () => (
 const RouterExporter: React.FC = () => (
   <Router>
     <AppContainer>
-      <Header/>
+      <Header />
       <MainContainer>
         <RouterComponent />
       </MainContainer>
-      <FooterContainer>
-      </FooterContainer>
+      <FooterContainer></FooterContainer>
     </AppContainer>
   </Router>
 );

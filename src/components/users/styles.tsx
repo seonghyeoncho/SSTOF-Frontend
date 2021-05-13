@@ -7,9 +7,7 @@ export const Container = styled.div`
 `;
 
 export const Wrapper = styled.div`
-
-  @media ${props => props.theme.desktop} {
-
+  @media ${(props) => props.theme.desktop} {
     width: 100%;
     max-width: 1440px;
 

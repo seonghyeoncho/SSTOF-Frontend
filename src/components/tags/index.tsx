@@ -12,7 +12,7 @@ const Tags: React.FC = () => (
   <Container>
     <Wrapper>
       <SideNavBarContianer>
-        <SideNavBar/>
+        <SideNavBar />
       </SideNavBarContianer>
       <TagsContainer>
         <Title>Tags</Title>

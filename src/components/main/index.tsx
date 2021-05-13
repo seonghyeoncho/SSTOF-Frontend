@@ -27,7 +27,7 @@ const Main: React.FC = () => {
     <Container>
       <Wrapper>
         <SideNavBarContianer>
-          <SideNavBar/>
+          <SideNavBar />
         </SideNavBarContianer>
         <MainContainer>
           <MainContentTitle>Top Questions</MainContentTitle>

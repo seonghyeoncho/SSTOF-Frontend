@@ -30,28 +30,19 @@ export const Container = styled.div`
 
 export const Wrapper = styled.div`
   @media ${(props) => props.theme.desktop} {
-    max-width: 1280px;
+    max-width: 1440px;
     height: 100%;
 
-    
-    @media ${props => props.theme.desktop} {
-        max-width: 1440px;
-        height: 100%;
-
-        display: flex;
-        justify-content: space-between;
-
-        margin: 0px auto;
-    }
-    @media ${props => props.theme.mobile} {
-        display: flex;
-    }
+    display: flex;
+    justify-content: space-between;
 
     margin: 0px auto;
   }
   @media ${(props) => props.theme.mobile} {
     display: flex;
   }
+
+  margin: 0px auto;
 `;
 
 export const TitleContainer = styled.div`

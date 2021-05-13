@@ -31,7 +31,8 @@
     "@typescript-eslint/no-unused-vars": [
       "warn",
       { "varsIgnorePattern": "\\\\*Saga" }
-    ]
+    ],
+    "react/no-children-prop": "off"
   },
   "settings": {
     "react": {

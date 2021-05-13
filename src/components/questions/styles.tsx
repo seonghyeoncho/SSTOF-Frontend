@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import theme from '../../theme';
+import styled from "styled-components";
+import theme from "../../theme";
 
 export const Container = styled.div`
   @media ${(props) => props.theme.desktop} {
@@ -8,11 +8,9 @@ export const Container = styled.div`
 `;
 
 export const Wrapper = styled.div`
-
-    @media ${props => props.theme.desktop} {
-
-        width: 100%;
-        max-width: 1440px;
+  @media ${(props) => props.theme.desktop} {
+    width: 100%;
+    max-width: 1440px;
 
     display: flex;
     justify-content: space-between;
@@ -48,14 +46,13 @@ export const AskButtonContainer = styled.div`
   color: black;
 `;
 export const AskButton = styled.button`
-    width: 167px;
-    height: 37px;
-    border: none;
+  width: 167px;
+  height: 37px;
+  border: none;
 
-    border-radius: 5px;
+  border-radius: 5px;
 
-    background-color: white;
+  background-color: white;
 
-    font-size: 20px;
-    
+  font-size: 20px;
 `;
