@@ -84,6 +84,9 @@ export const AskTitleInput = styled.input`
 
 export const AskBodyContainer = styled.div`
   color: white;
+  & > h1 {
+    color: white;
+  }
 `;
 export const AskBodyText = styled.div`
   font-size: 20px;
@@ -98,8 +101,12 @@ export const AskPreviewContainer = styled.div`
   color: white;
   margin-bottom: 30px;
   padding: 5px;
+ 
 `;
-export const AskPreviewContent = styled.pre``;
+export const AskPreviewContent = styled.pre`
+  /* color: white; */
+  overflow-y: hidden;
+`;
 
 export const SelectAskTagsContainer = styled.div`
   padding-right: 10px;
@@ -119,7 +126,6 @@ export const SelectAskTagsInput = styled.input`
     padding: 5px;
     outline: none;
     color: white;
-
     font-size: 16px;
   }
 `;
